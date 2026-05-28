@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="footer" id="footer">
+    <footer className="footer" id="contact">
       <div className="footer-top">
         <div className="footer-available">
           <span className="footer-pulse" />

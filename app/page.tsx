@@ -27,6 +27,20 @@ export default function Home() {
       gsapRef = gsap;
       gsap.registerPlugin(ScrollTrigger);
 
+      // ── Smooth anchor scroll via Lenis ──
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", (e) => {
+          const href = (anchor as HTMLAnchorElement).getAttribute("href");
+          if (href && href.length > 1) {
+            e.preventDefault();
+            lenisRef.scrollTo(href, {
+              duration: 1.4,
+              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            });
+          }
+        });
+      });
+
       // ── Custom cursor ──
       if (window.matchMedia("(pointer: fine)").matches) {
         const cursor = document.getElementById("cursor");

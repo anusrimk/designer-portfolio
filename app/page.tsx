@@ -80,7 +80,7 @@ export default function Home() {
       // ── Lenis smooth scroll ──
       // smoothTouch: false → let iOS/Android handle native touch momentum
       // lerp: 0.1 → responsive enough not to feel laggy on fast scrolls
-      lenisRef = new Lenis({ lerp: 0.1, smoothWheel: true, smoothTouch: false });
+      lenisRef = new Lenis({ lerp: 0.1, smoothWheel: true });
       lenisRef.on("scroll", ScrollTrigger.update);
       tickerFn = (time: number) => lenisRef.raf(time * 1000);
       gsap.ticker.add(tickerFn);
@@ -183,7 +183,7 @@ export default function Home() {
         );
 
         // ── Archive: pin + parallax scroll-up items ──
-        const isMobile = window.innerWidth < 1024;
+        const isMobile = window.matchMedia("(max-width: 1023px)").matches;
         if (!isMobile) {
           // Stagger = 2 units: item 2 starts when item 1 is 50% through (at y≈-5vh, just exiting).
           // Total timeline = 8 units, end = 280% → ~35vh per unit.
@@ -202,23 +202,6 @@ export default function Home() {
             .to(".archive-item--1", { y: "-120vh", duration: 4, ease: "none" }, 0)
             .to(".archive-item--2", { y: "-120vh", duration: 4, ease: "none" }, 2)
             .to(".archive-item--3", { y: "-120vh", duration: 4, ease: "none" }, 4);
-        } else {
-          // Mobile: simple scroll-triggered fade+slide (no pin)
-          gsap.fromTo(
-            ".archive-item",
-            { y: 60, opacity: 0 },
-            {
-              y: 0,
-              opacity: 1,
-              stagger: 0.15,
-              duration: 0.7,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: ".archive-items-layer",
-                start: "top 80%",
-              },
-            }
-          );
         }
 
 

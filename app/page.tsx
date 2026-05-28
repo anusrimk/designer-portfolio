@@ -1,65 +1,241 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect } from "react";
+import GridOverlay from "@/components/GridOverlay";
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
+import Works from "@/components/Works";
+import Archive from "@/components/Archive";
+import About from "@/components/About";
+import Footer from "@/components/Footer";
 
 export default function Home() {
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let ctx: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let lenisRef: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let gsapRef: any;
+    let tickerFn: ((time: number) => void) | undefined;
+
+    async function initAnimations() {
+      const gsap = (await import("gsap")).default;
+      const { ScrollTrigger } = await import("gsap/ScrollTrigger");
+      const Lenis = (await import("@studio-freight/lenis")).default;
+
+      gsapRef = gsap;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // ── Lenis smooth scroll ──
+      // smoothTouch: false → let iOS/Android handle native touch momentum
+      // lerp: 0.1 → responsive enough not to feel laggy on fast scrolls
+      lenisRef = new Lenis({ lerp: 0.1, smoothWheel: true, smoothTouch: false });
+      lenisRef.on("scroll", ScrollTrigger.update);
+      tickerFn = (time: number) => lenisRef.raf(time * 1000);
+      gsap.ticker.add(tickerFn);
+      gsap.ticker.lagSmoothing(0);
+
+      ctx = gsap.context(() => {
+        // ── Hero name stagger ──
+        gsap.fromTo(
+          ".hero-name .char",
+          { y: 60, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            stagger: 0.04,
+            ease: "power3.out",
+            delay: 0.2,
+          }
+        );
+
+        // ── Works rows stagger in ──
+        gsap.fromTo(
+          ".works-row",
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.08,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".works-list",
+              start: "top 80%",
+            },
+          }
+        );
+
+        // ── Works watermark parallax ──
+        gsap.to(".works-watermark", {
+          y: -80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".works",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        // ── Morph shape: circle erupts covering screen ──
+        const morphTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".works",
+            start: "bottom 80%",
+            end: "bottom top",
+            scrub: 0.5,
+          },
+        });
+        morphTl
+          .to(".morph-shape", { scale: 80, ease: "power2.inOut" })
+          .to(".works", { opacity: 0, duration: 0.3 }, "<");
+
+        // ── Archive/footer nav dark ──
+        ScrollTrigger.create({
+          trigger: "#archive",
+          start: "top 56px",
+          end: "bottom 56px",
+          onEnter: () => {
+            document.querySelector(".nav")?.classList.add("nav--dark");
+            document.body.classList.add("on-dark");
+          },
+          onLeave: () => {
+            document.querySelector(".nav")?.classList.remove("nav--dark");
+            document.body.classList.remove("on-dark");
+          },
+          onEnterBack: () => {
+            document.querySelector(".nav")?.classList.add("nav--dark");
+            document.body.classList.add("on-dark");
+          },
+          onLeaveBack: () => {
+            document.querySelector(".nav")?.classList.remove("nav--dark");
+            document.body.classList.remove("on-dark");
+          },
+        });
+
+        // ── Archive: pin + parallax scroll-up items ──
+        const isMobile = window.innerWidth < 768;
+        if (!isMobile) {
+          // Stagger = 2 units: item 2 starts when item 1 is 50% through (at y≈-5vh, just exiting).
+          // Total timeline = 8 units, end = 280% → ~35vh per unit.
+          const archiveTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: "#archive",
+              start: "top top",
+              end: "+=280%",
+              pin: true,
+              scrub: 1.5,
+              anticipatePin: 1,
+            },
+          });
+
+          archiveTl
+            .to(".archive-item--1", { y: "-120vh", duration: 4, ease: "none" }, 0)
+            .to(".archive-item--2", { y: "-120vh", duration: 4, ease: "none" }, 2)
+            .to(".archive-item--3", { y: "-120vh", duration: 4, ease: "none" }, 4);
+        } else {
+          // Mobile: simple scroll-triggered fade+slide (no pin)
+          gsap.fromTo(
+            ".archive-item",
+            { y: 60, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              stagger: 0.15,
+              duration: 0.7,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: ".archive-items-layer",
+                start: "top 80%",
+              },
+            }
+          );
+        }
+
+
+
+        // ── About watermark parallax ──
+        gsap.to(".about-watermark", {
+          y: -100,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".about",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        // ── Achievement pills stagger ──
+        gsap.to(".achievement-pill", {
+          opacity: 1,
+          x: 0,
+          stagger: 0.07,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-achievements",
+            start: "top 80%",
+          },
+        });
+
+        // ── Footer nav dark ──
+        ScrollTrigger.create({
+          trigger: ".footer",
+          start: "top 56px",
+          onEnter: () => {
+            document.querySelector(".nav")?.classList.add("nav--dark");
+            document.body.classList.add("on-dark");
+          },
+          onLeaveBack: () => {
+            document.querySelector(".nav")?.classList.remove("nav--dark");
+            document.body.classList.remove("on-dark");
+          },
+        });
+
+        // ── Footer giant name letter-spacing on scroll ──
+        const nameProxy = { letterSpacing: -4 };
+        gsap.to(nameProxy, {
+          letterSpacing: 2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".footer",
+            start: "top bottom",
+            end: "top top",
+            scrub: true,
+            onUpdate: () => {
+              const el = document.getElementById("footer-giant-name");
+              if (el) el.style.letterSpacing = `${nameProxy.letterSpacing}px`;
+            },
+          },
+        });
+      });
+    }
+
+    initAnimations();
+
+    return () => {
+      if (gsapRef && tickerFn) gsapRef.ticker.remove(tickerFn);
+      lenisRef?.destroy();
+      ctx?.revert();
+    };
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <GridOverlay />
+      <div className="morph-shape" aria-hidden="true" />
+      <Nav />
+      <main>
+        <Hero />
+        <Works />
+        <Archive />
+        <About />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

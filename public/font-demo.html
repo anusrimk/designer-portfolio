@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Font Demo — Anu Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Outfit:wght@400;500;700;800&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F0ECE6;
+      --bg-footer: #0D0A07;
+      --text: #1A1208;
+      --text-muted: #6B5B45;
+      --text-light: #F0ECE6;
+      --serif: 'Playfair Display', serif;
+    }
+    body { background: var(--bg); color: var(--text); }
+
+    .demo-header {
+      padding: 40px 48px 32px;
+      border-bottom: 1px solid rgba(26,18,8,0.1);
+    }
+    .demo-header h1 { font-family: var(--serif); font-style: italic; font-size: 28px; font-weight: 400; }
+    .demo-header p { font-family: 'Outfit', sans-serif; font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+
+    .font-section { padding: 60px 48px; border-bottom: 1px solid rgba(26,18,8,0.08); }
+    .font-section:last-of-type { border-bottom: none; }
+
+    .font-label {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 40px; font-family: 'Outfit', sans-serif;
+    }
+    .font-label span {
+      background: var(--text); color: var(--bg); padding: 3px 10px;
+      border-radius: 20px; margin-left: 8px; font-size: 10px;
+    }
+
+    .nav-row { display: flex; gap: 32px; align-items: center; font-size: 13px; letter-spacing: 0.04em; margin-bottom: 32px; }
+    .nav-logo-serif { font-family: var(--serif); font-style: italic; }
+
+    .hero-row { display: flex; align-items: baseline; gap: 0.1em; line-height: 1; margin-bottom: 48px; }
+    .hero-serif { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(56px, 8vw, 100px); }
+
+    .works-rows { border-top: 1px solid rgba(26,18,8,0.1); margin-top: 0; }
+    .works-row { display: flex; align-items: center; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(26,18,8,0.1); }
+    .works-num { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--text-muted); width: 40px; }
+    .works-tag { font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; margin-left: auto; font-family: 'Outfit', sans-serif; }
+
+    /* ── Bricolage Grotesque ── */
+    .bg-sans      { font-family: 'Bricolage Grotesque', sans-serif; }
+    .bg-hero      { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(56px, 8vw, 100px); }
+    .bg-heading   { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 48px; line-height: 1; margin-bottom: 24px; }
+    .bg-row       { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; font-size: clamp(24px, 2.5vw, 36px); }
+    .bg-nav       { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 500; }
+    .bg-footer-name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; }
+
+    /* ── Outfit ── */
+    .of-sans      { font-family: 'Outfit', sans-serif; }
+    .of-hero      { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(56px, 8vw, 100px); }
+    .of-heading   { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 48px; line-height: 1; margin-bottom: 24px; }
+    .of-row       { font-family: 'Outfit', sans-serif; font-weight: 500; font-size: clamp(24px, 2.5vw, 36px); }
+    .of-nav       { font-family: 'Outfit', sans-serif; font-weight: 500; }
+    .of-footer-name { font-family: 'Outfit', sans-serif; font-weight: 800; }
+
+    /* ── Manrope ── */
+    .mr-sans      { font-family: 'Manrope', sans-serif; }
+    .mr-hero      { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: clamp(56px, 8vw, 100px); }
+    .mr-heading   { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 48px; line-height: 1; margin-bottom: 24px; }
+    .mr-row       { font-family: 'Manrope', sans-serif; font-weight: 500; font-size: clamp(24px, 2.5vw, 36px); }
+    .mr-nav       { font-family: 'Manrope', sans-serif; font-weight: 500; }
+    .mr-footer-name { font-family: 'Manrope', sans-serif; font-weight: 800; }
+
+    /* dark section */
+    .font-section--dark { background: var(--bg-footer); color: var(--text-light); }
+    .font-section--dark .font-label { color: rgba(240,236,230,0.35); }
+    .font-section--dark .hero-serif { color: var(--text-light); }
+    .font-section--dark .works-row { border-color: rgba(240,236,230,0.08); }
+    .font-section--dark .works-rows { border-color: rgba(240,236,230,0.08); }
+    .font-section--dark .works-num { color: rgba(240,236,230,0.35); }
+    .font-section--dark .works-tag { color: rgba(240,236,230,0.35); }
+    .font-section--dark .nav-row { color: rgba(240,236,230,0.7); }
+
+    .dark-sub { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(240,236,230,0.3); margin-bottom: 12px; font-family: 'Outfit', sans-serif; margin-top: 40px; }
+    .footer-giant {
+      font-size: clamp(60px, 10vw, 120px); font-weight: 800;
+      color: transparent; -webkit-text-stroke: 1px rgba(240,236,230,0.15);
+      white-space: nowrap; line-height: 1; margin: 0 -8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="demo-header">
+    <h1>Font Pairing Demo — Round 2</h1>
+    <p>Playfair Display (kept) + three new candidates · same weights as the site</p>
+  </div>
+
+  <!-- BRICOLAGE GROTESQUE -->
+  <div class="font-section">
+    <div class="font-label">Option 1 — Bricolage Grotesque <span>Most Unique</span></div>
+    <div class="nav-row">
+      <span class="nav-logo-serif"><em>anusri</em>.k</span>
+      <span class="bg-nav">[Works]</span>
+      <span class="bg-nav">[About]</span>
+      <span class="bg-nav">[Contact]</span>
+    </div>
+    <div class="hero-row">
+      <span class="hero-serif">Anusri&nbsp;</span>
+      <span class="bg-hero">Karmokar</span>
+    </div>
+    <div class="bg-heading">Works</div>
+    <div class="works-rows">
+      <div class="works-row"><span class="works-num">01</span><span class="bg-row">Brand Identity</span><span class="works-tag">Branding · 2024</span></div>
+      <div class="works-row"><span class="works-num">02</span><span class="bg-row">Hackathon Merch</span><span class="works-tag">Print · 2023</span></div>
+      <div class="works-row"><span class="works-num">03</span><span class="bg-row">UI Design System</span><span class="works-tag">Product · 2024</span></div>
+    </div>
+  </div>
+
+  <!-- OUTFIT -->
+  <div class="font-section">
+    <div class="font-label">Option 2 — Outfit</div>
+    <div class="nav-row">
+      <span class="nav-logo-serif"><em>anusri</em>.k</span>
+      <span class="of-nav">[Works]</span>
+      <span class="of-nav">[About]</span>
+      <span class="of-nav">[Contact]</span>
+    </div>
+    <div class="hero-row">
+      <span class="hero-serif">Anusri&nbsp;</span>
+      <span class="of-hero">Karmokar</span>
+    </div>
+    <div class="of-heading">Works</div>
+    <div class="works-rows">
+      <div class="works-row"><span class="works-num">01</span><span class="of-row">Brand Identity</span><span class="works-tag">Branding · 2024</span></div>
+      <div class="works-row"><span class="works-num">02</span><span class="of-row">Hackathon Merch</span><span class="works-tag">Print · 2023</span></div>
+      <div class="works-row"><span class="works-num">03</span><span class="of-row">UI Design System</span><span class="works-tag">Product · 2024</span></div>
+    </div>
+  </div>
+
+  <!-- MANROPE -->
+  <div class="font-section">
+    <div class="font-label">Option 3 — Manrope</div>
+    <div class="nav-row">
+      <span class="nav-logo-serif"><em>anusri</em>.k</span>
+      <span class="mr-nav">[Works]</span>
+      <span class="mr-nav">[About]</span>
+      <span class="mr-nav">[Contact]</span>
+    </div>
+    <div class="hero-row">
+      <span class="hero-serif">Anusri&nbsp;</span>
+      <span class="mr-hero">Karmokar</span>
+    </div>
+    <div class="mr-heading">Works</div>
+    <div class="works-rows">
+      <div class="works-row"><span class="works-num">01</span><span class="mr-row">Brand Identity</span><span class="works-tag">Branding · 2024</span></div>
+      <div class="works-row"><span class="works-num">02</span><span class="mr-row">Hackathon Merch</span><span class="works-tag">Print · 2023</span></div>
+      <div class="works-row"><span class="works-num">03</span><span class="mr-row">UI Design System</span><span class="works-tag">Product · 2024</span></div>
+    </div>
+  </div>
+
+  <!-- DARK CONTEXT -->
+  <div class="font-section font-section--dark">
+    <div class="font-label">Dark context — footer giant name</div>
+
+    <div class="dark-sub">Bricolage Grotesque</div>
+    <div class="footer-giant bg-footer-name">Anusri Karmokar</div>
+
+    <div class="dark-sub">Outfit</div>
+    <div class="footer-giant of-footer-name">Anusri Karmokar</div>
+
+    <div class="dark-sub">Manrope</div>
+    <div class="footer-giant mr-footer-name">Anusri Karmokar</div>
+  </div>
+
+</body>
+</html>

@@ -27,6 +27,42 @@ export default function Home() {
       gsapRef = gsap;
       gsap.registerPlugin(ScrollTrigger);
 
+      // ── Custom cursor ──
+      if (window.matchMedia("(pointer: fine)").matches) {
+        const cursor = document.getElementById("cursor");
+        if (cursor) {
+          let mouseX = -60, mouseY = -60;
+          let curX = -60, curY = -60;
+          let rafId: number;
+          const half = () => cursor.offsetWidth / 2;
+
+          const tick = () => {
+            curX += (mouseX - curX) * 0.15;
+            curY += (mouseY - curY) * 0.15;
+            cursor.style.left = `${curX - half()}px`;
+            cursor.style.top  = `${curY - half()}px`;
+            rafId = requestAnimationFrame(tick);
+          };
+          rafId = requestAnimationFrame(tick);
+
+          window.addEventListener("mousemove", (e: MouseEvent) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            if (!cursor.style.opacity || cursor.style.opacity === "0") {
+              cursor.style.opacity = "1";
+            }
+          });
+
+          document.querySelectorAll("a, button, [role='button']").forEach(el => {
+            el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
+            el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
+          });
+
+          // store rafId for cleanup
+          (cursor as any)._rafId = rafId;
+        }
+      }
+
       // ── Lenis smooth scroll ──
       // smoothTouch: false → let iOS/Android handle native touch momentum
       // lerp: 0.1 → responsive enough not to feel laggy on fast scrolls
@@ -221,6 +257,8 @@ export default function Home() {
       if (gsapRef && tickerFn) gsapRef.ticker.remove(tickerFn);
       lenisRef?.destroy();
       ctx?.revert();
+      const cursor = document.getElementById("cursor");
+      if (cursor && (cursor as any)._rafId) cancelAnimationFrame((cursor as any)._rafId);
     };
   }, []);
 
@@ -228,6 +266,7 @@ export default function Home() {
     <>
       <GridOverlay />
       <div className="morph-shape" aria-hidden="true" />
+      <div className="cursor" id="cursor" aria-hidden="true" />
       <Nav />
       <main>
         <Hero />

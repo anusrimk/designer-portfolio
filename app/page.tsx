@@ -125,9 +125,7 @@ export default function Home() {
             scrub: 0.5,
           },
         });
-        morphTl
-          .to(".morph-shape", { scale: 80, ease: "power2.inOut" })
-          .to(".works", { opacity: 0, duration: 0.3 }, "<");
+        morphTl.to(".morph-shape", { scale: 80, ease: "power2.inOut" });
 
         // ── Archive/footer nav dark ──
         ScrollTrigger.create({
@@ -151,6 +149,24 @@ export default function Home() {
             document.body.classList.remove("on-dark");
           },
         });
+
+        // ── Archive title entrance ──
+        gsap.fromTo(
+          ".archive-title-wrap",
+          { opacity: 0, y: 48 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: "#archive",
+              start: "top 80%",
+              end: "top 30%",
+              scrub: 1,
+            },
+          }
+        );
 
         // ── Archive: pin + parallax scroll-up items ──
         const isMobile = window.innerWidth < 1024;

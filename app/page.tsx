@@ -117,7 +117,7 @@ export default function Home() {
         });
 
         // ── Archive: pin + parallax scroll-up items ──
-        const isMobile = window.innerWidth < 768;
+        const isMobile = window.innerWidth < 1024;
         if (!isMobile) {
           // Stagger = 2 units: item 2 starts when item 1 is 50% through (at y≈-5vh, just exiting).
           // Total timeline = 8 units, end = 280% → ~35vh per unit.

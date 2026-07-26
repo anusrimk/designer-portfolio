@@ -4,9 +4,12 @@ import { useEffect } from "react";
 import GridOverlay from "@/components/GridOverlay";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Services from "@/components/Services";
 import Works from "@/components/Works";
+import Process from "@/components/Process";
 import Archive from "@/components/Archive";
 import About from "@/components/About";
+import LogoStrip from "@/components/LogoStrip";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -130,10 +133,68 @@ export default function Home() {
           },
         });
 
+        // ── Services cards stagger ──
+        gsap.fromTo(
+          ".services-card",
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.08,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".services-list",
+              start: "top 80%",
+            },
+          }
+        );
+
+        // ── Services watermark parallax ──
+        gsap.to(".services-watermark", {
+          y: -80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".services",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        // ── Process phases stagger ──
+        gsap.fromTo(
+          ".process-phase",
+          { y: 40, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            stagger: 0.08,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".process-list",
+              start: "top 80%",
+            },
+          }
+        );
+
+        // ── Process watermark parallax ──
+        gsap.to(".process-watermark", {
+          y: -80,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".process",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
         // ── Morph shape: circle erupts covering screen ──
         const morphTl = gsap.timeline({
           scrollTrigger: {
-            trigger: ".works",
+            trigger: ".process",
             start: "bottom 80%",
             end: "bottom top",
             scrub: 0.5,
@@ -141,20 +202,11 @@ export default function Home() {
         });
         morphTl.to(".morph-shape", { scale: 80, ease: "power2.inOut" });
 
-        // ── Archive/footer nav dark ──
+        // ── Dark zone: Archive through Footer ──
         ScrollTrigger.create({
           trigger: "#archive",
           start: "top 56px",
-          end: "bottom 56px",
           onEnter: () => {
-            document.querySelector(".nav")?.classList.add("nav--dark");
-            document.body.classList.add("on-dark");
-          },
-          onLeave: () => {
-            document.querySelector(".nav")?.classList.remove("nav--dark");
-            document.body.classList.remove("on-dark");
-          },
-          onEnterBack: () => {
             document.querySelector(".nav")?.classList.add("nav--dark");
             document.body.classList.add("on-dark");
           },
@@ -185,13 +237,12 @@ export default function Home() {
         // ── Archive: pin + parallax scroll-up items ──
         const isMobile = window.matchMedia("(max-width: 1023px)").matches;
         if (!isMobile) {
-          // Stagger = 2 units: item 2 starts when item 1 is 50% through (at y≈-5vh, just exiting).
-          // Total timeline = 8 units, end = 280% → ~35vh per unit.
+          // Stagger = 1.5 units, total timeline = 7 units, end = 245%.
           const archiveTl = gsap.timeline({
             scrollTrigger: {
               trigger: "#archive",
               start: "top top",
-              end: "+=280%",
+              end: "+=160%",
               pin: true,
               scrub: 1.5,
               anticipatePin: 1,
@@ -231,19 +282,20 @@ export default function Home() {
           },
         });
 
-        // ── Footer nav dark ──
-        ScrollTrigger.create({
-          trigger: ".footer",
-          start: "top 56px",
-          onEnter: () => {
-            document.querySelector(".nav")?.classList.add("nav--dark");
-            document.body.classList.add("on-dark");
-          },
-          onLeaveBack: () => {
-            document.querySelector(".nav")?.classList.remove("nav--dark");
-            document.body.classList.remove("on-dark");
-          },
-        });
+        // ── Logo strip fade ──
+        gsap.fromTo(
+          ".logo-strip",
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".logo-strip",
+              start: "top 80%",
+            },
+          }
+        );
 
         // ── Footer giant name letter-spacing on scroll ──
         const nameProxy = { letterSpacing: -4 };
@@ -283,9 +335,12 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Services />
         <Works />
+        <Process />
         <Archive />
         <About />
+        <LogoStrip />
       </main>
       <Footer />
     </>

@@ -4,9 +4,7 @@ import { useEffect } from "react";
 import GridOverlay from "@/components/GridOverlay";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
 import Works from "@/components/Works";
-import Process from "@/components/Process";
 import Archive from "@/components/Archive";
 import About from "@/components/About";
 import LogoStrip from "@/components/LogoStrip";
@@ -14,6 +12,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   useEffect(() => {
+    let disposed = false;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,64 +20,32 @@ export default function Home() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let gsapRef: any;
     let tickerFn: ((time: number) => void) | undefined;
+    const cleanupFns: Array<() => void> = [];
 
     async function initAnimations() {
       const gsap = (await import("gsap")).default;
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      const Lenis = (await import("@studio-freight/lenis")).default;
+      const Lenis = (await import("lenis")).default;
+      if (disposed) return;
 
       gsapRef = gsap;
       gsap.registerPlugin(ScrollTrigger);
 
       // ── Smooth anchor scroll via Lenis ──
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", (e) => {
+        const onClick = (e: Event) => {
           const href = (anchor as HTMLAnchorElement).getAttribute("href");
           if (href && href.length > 1) {
             e.preventDefault();
-            lenisRef.scrollTo(href, {
+            lenisRef?.scrollTo(href, {
               duration: 1.4,
               easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             });
           }
-        });
+        };
+        anchor.addEventListener("click", onClick);
+        cleanupFns.push(() => anchor.removeEventListener("click", onClick));
       });
-
-      // ── Custom cursor ──
-      if (window.matchMedia("(pointer: fine)").matches) {
-        const cursor = document.getElementById("cursor");
-        if (cursor) {
-          let mouseX = -60, mouseY = -60;
-          let curX = -60, curY = -60;
-          let rafId: number;
-          const half = () => cursor.offsetWidth / 2;
-
-          const tick = () => {
-            curX += (mouseX - curX) * 0.15;
-            curY += (mouseY - curY) * 0.15;
-            cursor.style.left = `${curX - half()}px`;
-            cursor.style.top  = `${curY - half()}px`;
-            rafId = requestAnimationFrame(tick);
-          };
-          rafId = requestAnimationFrame(tick);
-
-          window.addEventListener("mousemove", (e: MouseEvent) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            if (!cursor.style.opacity || cursor.style.opacity === "0") {
-              cursor.style.opacity = "1";
-            }
-          });
-
-          document.querySelectorAll("a, button, [role='button']").forEach(el => {
-            el.addEventListener("mouseenter", () => cursor.classList.add("cursor--hover"));
-            el.addEventListener("mouseleave", () => cursor.classList.remove("cursor--hover"));
-          });
-
-          // store rafId for cleanup
-          (cursor as any)._rafId = rafId;
-        }
-      }
 
       // ── Lenis smooth scroll ──
       // smoothTouch: false → let iOS/Android handle native touch momentum
@@ -133,68 +100,10 @@ export default function Home() {
           },
         });
 
-        // ── Services cards stagger ──
-        gsap.fromTo(
-          ".services-card",
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.08,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: ".services-list",
-              start: "top 80%",
-            },
-          }
-        );
-
-        // ── Services watermark parallax ──
-        gsap.to(".services-watermark", {
-          y: -80,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".services",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-
-        // ── Process phases stagger ──
-        gsap.fromTo(
-          ".process-phase",
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            stagger: 0.08,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: ".process-list",
-              start: "top 80%",
-            },
-          }
-        );
-
-        // ── Process watermark parallax ──
-        gsap.to(".process-watermark", {
-          y: -80,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".process",
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-
         // ── Morph shape: circle erupts covering screen ──
         const morphTl = gsap.timeline({
           scrollTrigger: {
-            trigger: ".process",
+            trigger: ".works",
             start: "bottom 80%",
             end: "bottom top",
             scrub: 0.5,
@@ -319,11 +228,11 @@ export default function Home() {
     initAnimations();
 
     return () => {
+      disposed = true;
       if (gsapRef && tickerFn) gsapRef.ticker.remove(tickerFn);
       lenisRef?.destroy();
       ctx?.revert();
-      const cursor = document.getElementById("cursor");
-      if (cursor && (cursor as any)._rafId) cancelAnimationFrame((cursor as any)._rafId);
+      cleanupFns.forEach((fn) => fn());
     };
   }, []);
 
@@ -331,13 +240,10 @@ export default function Home() {
     <>
       <GridOverlay />
       <div className="morph-shape" aria-hidden="true" />
-      <div className="cursor" id="cursor" aria-hidden="true" />
       <Nav />
       <main>
         <Hero />
-        <Services />
         <Works />
-        <Process />
         <Archive />
         <About />
         <LogoStrip />

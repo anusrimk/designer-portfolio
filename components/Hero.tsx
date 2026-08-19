@@ -9,7 +9,7 @@ function splitChars(text: string) {
 export default function Hero() {
   return (
     <section className="hero" id="hero">
-      <div className="hero-specialty">UI/UX · Graphic Design</div>
+      <div className="hero-specialty">Product Designer - UX Strategist</div>
 
       <div className="hero-name">
         <span className="hero-name-serif">{splitChars("Anusri")}</span>
@@ -20,16 +20,15 @@ export default function Hero() {
       <div className="hero-body">
         <div className="hero-desc">
           <span className="hero-plus">+</span>
-          <p>Designer. Developer. Professional &ldquo;this could look cooler&rdquo; person.</p>
+          <p>Designer with strengths in UI/UX, product thinking, and web experiences. Building at the intersection of design, development, and AI.</p>
         </div>
         <div className="hero-image">
           <div className="hero-image-placeholder"><span>[ hero image ]</span></div>
         </div>
         <div className="hero-location">
-          Mumbai, India<br />
-          <em>Building since 2019.</em><br />
-          Currently navigating<br />
-          design &amp; 47 Figma drafts.
+          Based in Mumbai, making things since 2023.<br />
+          Currently somewhere between Figma, code, caffeine,<br />
+          and &ldquo;wait, I have a better idea.&rdquo;
         </div>
       </div>
 

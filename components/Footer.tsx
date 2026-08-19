@@ -33,7 +33,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bar">
-        <span>© 2025 Anusri Karmokar</span>
+        <span>© 2026 Anusri Karmokar</span>
         <span>WIP 2019–Present ✳</span>
       </div>
     </footer>

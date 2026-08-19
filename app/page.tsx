@@ -171,11 +171,22 @@ export default function Home() {
             },
           });
 
+          // Cards start at translateY(100vh) (see globals.css), so they only
+          // need to travel one viewport plus their own height to clear the top
+          // edge. Travelling a flat -100vh sent them ~36% further than that,
+          // all of it off-screen above, which burned scroll budget and made the
+          // visible pass feel too fast. Function-based so each card uses its
+          // own height, and so the value recomputes on refresh via
+          // invalidateOnRefresh above (a vh constant would fall short on short
+          // viewports, where card height is a bigger share of the screen).
+          const exitY = (i: number, target: HTMLElement) =>
+            -(target.offsetHeight + 24);
+
           archiveTl
-            .to(".archive-item--1", { y: "-100vh", duration: 4, ease: "none" }, 0)
-            .to(".archive-item--2", { y: "-100vh", duration: 4, ease: "none" }, 2)
-            .to(".archive-item--3", { y: "-100vh", duration: 4, ease: "none" }, 4)
-            .to(".archive-item--4", { y: "-100vh", duration: 4, ease: "none" }, 6);
+            .to(".archive-item--1", { y: exitY, duration: 4, ease: "none" }, 0)
+            .to(".archive-item--2", { y: exitY, duration: 4, ease: "none" }, 2)
+            .to(".archive-item--3", { y: exitY, duration: 4, ease: "none" }, 4)
+            .to(".archive-item--4", { y: exitY, duration: 4, ease: "none" }, 6);
         });
 
 

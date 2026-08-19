@@ -144,8 +144,16 @@ export default function Home() {
         );
 
         // ── Archive: pin + parallax scroll-up items ──
-        const isMobile = window.matchMedia("(max-width: 1023px)").matches;
-        if (!isMobile) {
+        // Query is the exact complement of the `max-width: 1024px` block in
+        // globals.css that swaps Archive to the stacked layout. They must stay
+        // in sync: if both apply at once, CSS `transform: none !important` wins
+        // and the section pins with nothing animating. matchMedia (not a
+        // one-time check) re-evaluates on resize, so dragging the viewport
+        // across the breakpoint rebuilds or tears down the timeline.
+        const mm = gsap.matchMedia();
+        cleanupFns.push(() => mm.revert());
+
+        mm.add("(min-width: 1025px)", () => {
           // Fixed pin distance — stays 50% regardless of item count or card height.
           const archiveTl = gsap.timeline({
             scrollTrigger: {
@@ -155,6 +163,11 @@ export default function Home() {
               pin: true,
               scrub: 0.3,
               anticipatePin: 1,
+              // The item tweens below travel in `vh`, which GSAP resolves to
+              // pixels once at creation. Without this, resizing the window
+              // (or a mobile URL bar collapsing) leaves the cards animating to
+              // a stale distance and they stop clearing the viewport.
+              invalidateOnRefresh: true,
             },
           });
 
@@ -163,7 +176,7 @@ export default function Home() {
             .to(".archive-item--2", { y: "-100vh", duration: 4, ease: "none" }, 2)
             .to(".archive-item--3", { y: "-100vh", duration: 4, ease: "none" }, 4)
             .to(".archive-item--4", { y: "-100vh", duration: 4, ease: "none" }, 6);
-        }
+        });
 
 
 

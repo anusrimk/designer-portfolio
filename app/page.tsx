@@ -146,22 +146,23 @@ export default function Home() {
         // ── Archive: pin + parallax scroll-up items ──
         const isMobile = window.matchMedia("(max-width: 1023px)").matches;
         if (!isMobile) {
-          // Stagger = 1.5 units, total timeline = 7 units, end = 245%.
+          // Fixed pin distance — stays 50% regardless of item count or card height.
           const archiveTl = gsap.timeline({
             scrollTrigger: {
               trigger: "#archive",
               start: "top top",
-              end: "+=160%",
+              end: "+=50%",
               pin: true,
-              scrub: 1.5,
+              scrub: 0.3,
               anticipatePin: 1,
             },
           });
 
           archiveTl
-            .to(".archive-item--1", { y: "-120vh", duration: 4, ease: "none" }, 0)
-            .to(".archive-item--2", { y: "-120vh", duration: 4, ease: "none" }, 2)
-            .to(".archive-item--3", { y: "-120vh", duration: 4, ease: "none" }, 4);
+            .to(".archive-item--1", { y: "-100vh", duration: 4, ease: "none" }, 0)
+            .to(".archive-item--2", { y: "-100vh", duration: 4, ease: "none" }, 2)
+            .to(".archive-item--3", { y: "-100vh", duration: 4, ease: "none" }, 4)
+            .to(".archive-item--4", { y: "-100vh", duration: 4, ease: "none" }, 6);
         }
 
 

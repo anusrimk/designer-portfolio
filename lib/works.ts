@@ -1,26 +1,7 @@
-export type WorkBlock =
-  | { type: "p"; text: string }
-  | { type: "quote"; text: string }
-  | { type: "list"; items: string[] }
-  | { type: "flow"; steps: string[] }
-  | { type: "images"; images: string[] }
-  | { type: "placeholders"; items: { label: string; caption: string }[] };
+import type { CaseStudy, WorkBlock, WorkSection } from "./case-study";
 
-export type WorkSection = {
-  heading: string;
-  blocks: WorkBlock[];
-};
-
-export type Work = {
-  slug: string;
-  num: string;
-  name: string;
-  tag: string;
-  role: string;
-  period: string;
-  intro: WorkBlock[];
-  sections: WorkSection[];
-};
+export type { WorkBlock, WorkSection };
+export type Work = CaseStudy;
 
 export const works: Work[] = [
   {
@@ -28,8 +9,8 @@ export const works: Work[] = [
     num: "01",
     name: "JavaScript Mumbai",
     tag: "UI/UX Designer",
-    role: "UI/UX Designer · JavaScript Mumbai",
-    period: "March 2026 — Present",
+    metaLine1: "UI/UX Designer · JavaScript Mumbai",
+    metaLine2: "March 2026 — Present",
     intro: [
       {
         type: "p",
@@ -110,8 +91,8 @@ export const works: Work[] = [
     num: "02",
     name: "Winvesta",
     tag: "UI/UX Lead",
-    role: "UI/UX Lead · Winvesta",
-    period: "May 2025 — December 2025",
+    metaLine1: "UI/UX Lead · Winvesta",
+    metaLine2: "May 2025 — December 2025",
     intro: [
       {
         type: "p",
@@ -223,8 +204,8 @@ export const works: Work[] = [
     num: "03",
     name: "ITM Business School",
     tag: "UX & Technology Trainer",
-    role: "UX & Technology Trainer · ITM Business School",
-    period: "January 2025 — February 2025",
+    metaLine1: "UX & Technology Trainer · ITM Business School",
+    metaLine2: "January 2025 — February 2025",
     intro: [
       {
         type: "p",
@@ -265,8 +246,8 @@ export const works: Work[] = [
     num: "04",
     name: "LetsUpgrade",
     tag: "UX & Product Intern",
-    role: "UX & Product Intern · LetsUpgrade.in",
-    period: "December 2024",
+    metaLine1: "UX & Product Intern · LetsUpgrade.in",
+    metaLine2: "December 2024",
     intro: [
       {
         type: "p",

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const achievements = [
   "Top 10 — PIWOT PanIIT 2025",
   "Top 4 — ISTD Hackathon",
@@ -12,7 +14,15 @@ export default function About() {
     <section className="about" id="about">
       <div className="about-watermark" aria-hidden="true">About</div>
       <div className="about-grid">
-        <div className="about-photo"><span>[ photo ]</span></div>
+        <div className="about-photo">
+          <Image
+            src="/anusri-1.png"
+            alt="Anusri Karmokar"
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            className="about-photo-img"
+          />
+        </div>
         <div className="about-content">
           <p className="about-bio">
             I&apos;m Anusri — a designer who codes, a developer who cares{" "}

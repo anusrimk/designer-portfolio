@@ -17,9 +17,9 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Anusri Karmokar — UI/UX & Graphic Designer",
+  title: "Anusri Karmokar — UX Strategist & Product Designer",
   description:
-    "Portfolio of Anusri Karmokar — UI/UX Designer, Graphic Designer, and Developer based in Mumbai.",
+    "Portfolio of Anusri Karmokar — UX Strategist, Product Designer, and Developer based in Mumbai.",
 };
 
 export default function RootLayout({

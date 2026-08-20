@@ -172,10 +172,10 @@ export const works: Work[] = [
             text: "Once the journey was validated, I translated it into high-fidelity interfaces while maintaining consistency with the product's design system.",
           },
           {
-            type: "placeholders",
-            items: [
-              { label: "Before → After", caption: "" },
-              { label: "Final UI", caption: "" },
+            type: "images",
+            images: [
+              "/works/winvesta/final-01.jpg",
+              "/works/winvesta/final-02.jpg",
             ],
           },
         ],

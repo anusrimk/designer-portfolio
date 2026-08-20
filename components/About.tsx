@@ -49,6 +49,14 @@ export default function About() {
           </a>
         </div>
       </div>
+      <Image
+        src="/harryp4.png"
+        alt=""
+        aria-hidden="true"
+        width={643}
+        height={322}
+        className="about-mark"
+      />
     </section>
   );
 }

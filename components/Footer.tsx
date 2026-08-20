@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="footer" id="contact">
@@ -24,7 +26,14 @@ export default function Footer() {
 
       <div className="footer-character-wrap">
         <div className="footer-character">
-          <div className="footer-blob" />
+          <Image
+            src="/happyp2.png"
+            alt=""
+            aria-hidden="true"
+            width={500}
+            height={315}
+            className="footer-snitch"
+          />
         </div>
       </div>
 

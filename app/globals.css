@@ -244,6 +244,9 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
   line-height: 1.6;
   color: var(--text-muted);
 }
+.hero-image {
+  margin-top: calc(-1 * var(--sp-12));
+}
 .hero-image-placeholder {
   position: relative;
   width: 100%;
@@ -575,6 +578,16 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
   transition: opacity 0.2s;
 }
 .about-resume:hover { opacity: 1; }
+.about-mark {
+  position: absolute;
+  right: var(--pad-x);
+  bottom: var(--sp-8);
+  width: clamp(180px, 18vw, 260px);
+  height: auto;
+  opacity: 0.8;
+  pointer-events: none;
+  user-select: none;
+}
 
 /* ─── Contact ─── */
 .contact {
@@ -721,24 +734,16 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
   margin-top: -10px;
 }
 .footer-character {
-  width: 100px;
-  height: 100px;
+  width: clamp(110px, 12vw, 160px);
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.footer-blob {
-  width: 80px;
-  height: 80px;
-  background: rgba(240, 236, 230, 0.08);
-  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
-  animation: blob-morph 4s ease-in-out infinite, blob-float 3s ease-in-out infinite;
-}
-@keyframes blob-morph {
-  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-  25%  { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
-  50%  { border-radius: 30% 70% 30% 70% / 60% 40% 60% 40%; }
-  75%  { border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%; }
+.footer-snitch {
+  width: 100%;
+  height: auto;
+  animation: blob-float 3s ease-in-out infinite;
 }
 @keyframes blob-float {
   0%, 100% { transform: translateY(0); }
@@ -1079,6 +1084,7 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
     width: 100%;
     pointer-events: auto;
   }
+  .about-mark { display: none; }
   .archive-item {
     position: static;
     width: 100%;
@@ -1092,6 +1098,7 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
 @media (max-width: 768px) {
   .works-watermark { font-size: clamp(48px, 18vw, 100px); top: 8px; }
   .hero-body { grid-template-columns: 1fr; gap: var(--sp-6); }
+  .hero-image { margin-top: 0; }
   .hero-specialty { position: static; margin-bottom: var(--sp-3); }
   .works-row { grid-template-columns: 40px 1fr; }
   .works-row-tag { display: none; }

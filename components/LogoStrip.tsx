@@ -1,7 +1,6 @@
 const logos = [
   { name: "Winvesta", role: "UI/UX Lead" },
-  { name: "BharatXR", role: "UX Design" },
-  { name: "Let's Upgrade", role: "UX Revamp" },
+  { name: "LetsUpgrade", role: "UX Revamp" },
   { name: "Momentum Health Club", role: "Brand & UX" },
   { name: "JavaScript Mumbai", role: "Lead Designer" },
 ];

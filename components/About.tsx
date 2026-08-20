@@ -29,8 +29,8 @@ export default function About() {
             <em>way too much about spacing</em>, and someone who genuinely
             enjoys turning chaotic ideas into things people actually want to
             use. Currently with <em>JavaScript Mumbai</em> and{" "}
-            <em>Momentum Health Club</em>. Previously: BharatXR, Winvesta,
-            Let&apos;s Upgrade, 12thclass.com. I&apos;ve managed hackathons
+            <em>Momentum Health Club</em>. Previously: Winvesta, LetsUpgrade,
+            12thclass.com. I&apos;ve managed hackathons
             with <em>600+ participants</em> across 5 cities. And yes, I
             probably still have <em>47 untitled Figma drafts</em> open.
           </p>

@@ -14,9 +14,11 @@ export default function Works() {
             <span className="works-row-num">{w.num}</span>
             <span className="works-row-name">{w.name}</span>
             <span className="works-row-tag">{w.tag}</span>
-            <div className="works-row-thumb">
-              <span>[ {w.name} ]</span>
-            </div>
+            {w.thumb && (
+              <div className="works-row-thumb">
+                <img src={w.thumb} alt="" aria-hidden="true" />
+              </div>
+            )}
           </a>
         ))}
       </div>

@@ -16,6 +16,8 @@ export type CaseStudy = {
   num: string;
   name: string;
   tag: string;
+  /** Optional image shown on hover in the Selected Works list. */
+  thumb?: string;
   metaLine1: string;
   metaLine2: string;
   intro: WorkBlock[];

@@ -13,7 +13,6 @@ export default function CustomCursor() {
     let curX = -60, curY = -60;
     let rafId: number;
 
-    // transform-only: no layout reads/writes, compositor-driven
     const tick = () => {
       curX += (mouseX - curX) * 0.15;
       curY += (mouseY - curY) * 0.15;
@@ -49,5 +48,10 @@ export default function CustomCursor() {
     };
   }, []);
 
-  return <div className="cursor" id="cursor" aria-hidden="true" />;
+  return (
+    <div className="cursor" id="cursor" aria-hidden="true">
+      <img className="cursor-wand" src="/cursors/cursor.png" alt="" draggable={false} />
+      <img className="cursor-snitch" src="/cursors/pointer.png" alt="" draggable={false} />
+    </div>
+  );
 }

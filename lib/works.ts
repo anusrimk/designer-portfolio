@@ -198,34 +198,36 @@ export const works: Work[] = [
     intro: [
       {
         type: "p",
-        text: "I trained 70+ MBA students in UI/UX, data science, Git/GitHub, version control, scalable storage, command-line workflows, and no-code tools.",
+        text: "I trained 70+ MBA students in UI/UX, data science, Git and GitHub, command-line workflows, scalable storage, and no-code tools.",
       },
       {
         type: "p",
-        text: "Rather than teaching UX as simply “making screens look good,” I focused on helping students understand the thinking behind a product.",
+        text: "I didn't teach UX as “making screens look good.” I taught the thinking behind a product.",
       },
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "The Gap",
         blocks: [
           {
             type: "p",
-            text: "Many students understood business problems but had limited exposure to the process of turning those problems into usable digital products.",
+            text: "Most of the students understood business problems well, but had little experience turning those problems into digital products people could actually use.",
           },
         ],
       },
       {
-        heading: "Experience",
+        heading: "How I Taught It",
         blocks: [
           {
             type: "p",
-            text: "Beyond teaching individual tools, I helped students understand how design, technology, and business decisions connect.",
+            text: "Instead of teaching tools one at a time, I showed how design, technology, and business decisions connect.",
           },
           {
             type: "p",
-            text: "It also strengthened my own ability to communicate complex technical and design concepts in a simple, accessible way.",
+            text: "It also made me better at explaining technical and design ideas simply.",
           },
+          // TODO(copy): add a teaching artifact (an exercise, a slide, student
+          // work) as an "images" block, or one student result.
         ],
       },
     ],

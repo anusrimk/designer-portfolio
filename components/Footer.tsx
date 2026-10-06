@@ -19,7 +19,6 @@ export default function Footer() {
           <a href="mailto:anusrikarmokar@gmail.com">(Email)</a>
           <a href="https://linkedin.com/in/anusrikarmokar" target="_blank" rel="noopener noreferrer">(LinkedIn)</a>
           <a href="https://figma.com/@anusri" target="_blank" rel="noopener noreferrer">(Figma)</a>
-          <a href="https://github.com/anusrikarmokar" target="_blank" rel="noopener noreferrer">(GitHub)</a>
           <a href="#">Resume ↓</a>
         </div>
       </div>
@@ -43,7 +42,7 @@ export default function Footer() {
 
       <div className="footer-bar">
         <span>© 2026 Anusri Karmokar</span>
-        <span>WIP 2019–Present ✳</span>
+        <span>WIP 2023–Present ✳</span>
       </div>
     </footer>
   );

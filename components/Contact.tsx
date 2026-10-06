@@ -23,13 +23,6 @@ export default function Contact() {
         >
           (Figma)
         </a>
-        <a
-          href="https://github.com/anusrikarmokar"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          (GitHub)
-        </a>
         <a href="#" className="contact-resume-pill">
           Download Resume ↓
         </a>

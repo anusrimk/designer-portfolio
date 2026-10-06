@@ -12,7 +12,7 @@ Use this when writing anything in Anusri's name: portfolio case studies, bios, L
 - She *used to* be a developer (she's studying for a B.Tech) and has **already made the switch** to design. If her technical background comes up at all, it's past tense and in service of the design work: *"a developer turned product designer"*, *"my engineering background means I design things that can actually be built"*.
 - Never position her as someone who does both jobs. Readers should think "great designer", not "why would I hire one person for two roles?"
 
-**Where she's worked:** JavaScript Mumbai (UI/UX Designer, 2026–present), Momentum Health Club (Product Designer, ongoing), Winvesta (UI/UX Lead, 2025), ITM Business School (UX & Technology Trainer, 2025), LetsUpgrade / 12thClass.com (UX & Product Intern, 2024).
+**Where she's worked:** JavaScript Mumbai (UI/UX Designer, 2026–present), Momentum Health Club (Product Designer, paused midway), Winvesta (UI/UX Lead, 2025), ITM Business School (UX & Technology Trainer, 2025), LetsUpgrade / 12thClass.com (UX & Product Intern, 2024).
 
 **What she's best at:** design where the stakes are real — money moving across borders, people deciding whether to show up — and making complicated things feel simple without hiding what matters.
 
@@ -32,7 +32,7 @@ Write for someone skimming. The first sentence of anything should carry the most
 ### Specific
 - **Is:** concrete nouns, real numbers, named things. "700+ registrations in a single week."
 - **Isn't:** vague process words. "Drove engagement across touchpoints."
-- **Sounds like:** "Users were dropping off at KYC because nobody knew what the term meant."
+- **Sounds like:** "I designed the invoicing page and the new onboarding flows for Winvesta Global Payments."
 - **Doesn't sound like:** "I conducted research to identify pain points in the user journey."
 
 ### Warm, a little self-aware
@@ -44,7 +44,7 @@ Write for someone skimming. The first sentence of anything should carry the most
 ### Confident, not inflated
 - **Is:** says what she did plainly, and credits the team where it was a team.
 - **Isn't:** superlatives, "passionate", "rockstar", or claiming results she can't back up.
-- **Sounds like:** "I redesigned onboarding, which contributed to a 15%+ rise in onboardings."
+- **Sounds like:** "I worked on the UI revamp of a product that has processed $1.2M+ in transactions."
 - **Doesn't sound like:** "I single-handedly revolutionised the onboarding experience."
 
 ### Clear over clever
@@ -66,7 +66,9 @@ Every case study follows this order. Headings are title case.
 **Label honestly.** Concepts, hackathon projects and self-initiated work say so in the meta line ("Concept · Web Experience · …"). Reviewers trust a portfolio more when it's clear what was real.
 
 **Metrics rules.**
-- Say what she designed that produced the number: *"Designed the funding flows that processed $1.2M+"*, not *"Worked on $1.2M+ volume"*.
+- Say exactly how she relates to the number. *"Worked on the UI revamp of a product that has processed $1.2M+"* is honest; *"My designs drove $1.2M+"* is not.
+- **Never invent or project a metric.** Planned, hoped-for or estimated numbers don't go in. No number is better than a made-up one, which can unravel in an interview.
+- No metric? Describe what shipped, or be honest about the situation ("The project was paused midway, so there are no launch results to share").
 - Give a time frame when there is one.
 - Only use a company's internal figures if they're public or she has permission.
 
@@ -79,7 +81,7 @@ Every case study follows this order. Headings are title case.
 | Oxford comma | Yes: "attendees, developers, speakers, and the wider community" |
 | Em dash | Spaced: "Anusri — a developer turned product designer". Use sparingly; a colon or full stop is often better |
 | Headings | Title Case ("My Approach", "From Flow to Final UI") |
-| Numbers | Numerals with "+" for minimums: 700+, 15%+, $1.2M+, 70+ |
+| Numbers | Numerals with "+" for minimums: 700+, $1.2M+, 70+ |
 | Dates | "May 2025 — December 2025", "March 2026 — Present" |
 | Lists | Only for things that are genuinely a list (deliverables, features). No full stops on fragments |
 | Contractions | Yes (I'm, didn't, it's) — it keeps the voice human |
@@ -118,7 +120,7 @@ Every case study follows this order. Headings are title case.
 ## 8. Before you hand copy back, check
 
 - [ ] Does the first sentence carry the most important thing?
-- [ ] Is every claim specific, and is every number attributed to something she designed?
+- [ ] Is every claim specific and true? Is every number real, sourced, and worded to match her actual part in it?
 - [ ] Does anything suggest she's a developer *now*? Remove it or make it past tense.
 - [ ] Any word from the "avoid" list?
 - [ ] British spelling throughout?

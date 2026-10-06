@@ -296,7 +296,7 @@ export const archiveItems: CaseStudy[] = [
     name: "AI Design Tools Website",
     tag: "UI/UX Designer",
     metaLine1: "UI/UX Designer · AI Design Platform",
-    metaLine2: "Web Design · Interaction Design · Visual System",
+    metaLine2: "In Progress · Web Design · Interaction Design · Visual System",
     intro: [
       {
         type: "p",

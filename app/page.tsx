@@ -57,19 +57,8 @@ export default function Home() {
       gsap.ticker.lagSmoothing(0);
 
       ctx = gsap.context(() => {
-        // ── Hero name stagger ──
-        gsap.fromTo(
-          ".hero-name .char",
-          { y: 60, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.7,
-            stagger: 0.04,
-            ease: "power3.out",
-            delay: 0.2,
-          }
-        );
+        // Hero name stagger is a CSS animation (globals.css, .hero-name .char)
+        // so it runs from first paint instead of after this chunk loads.
 
         // ── Works rows stagger in ──
         gsap.fromTo(

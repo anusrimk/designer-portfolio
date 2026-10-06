@@ -1,8 +1,13 @@
 import Image from "next/image";
 
-function splitChars(text: string) {
+// `offset` continues the stagger index (--i) across both words of the name
+function splitChars(text: string, offset = 0) {
   return text.split("").map((ch, i) => (
-    <span key={i} className="char" style={{ display: "inline-block" }}>
+    <span
+      key={i}
+      className="char"
+      style={{ display: "inline-block", "--i": offset + i } as React.CSSProperties}
+    >
       {ch}
     </span>
   ));
@@ -16,7 +21,7 @@ export default function Hero() {
       <div className="hero-name">
         <span className="hero-name-serif">{splitChars("Anusri")}</span>
         {" "}
-        <span className="hero-name-sans">{splitChars("Karmokar")}</span>
+        <span className="hero-name-sans">{splitChars("Karmokar", "Anusri".length)}</span>
       </div>
 
       <div className="hero-body">

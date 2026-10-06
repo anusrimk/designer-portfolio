@@ -182,17 +182,19 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
 }
 .nav-link-item span:first-child {
   display: block;
-  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 250ms var(--ease-out);
 }
 .nav-link-item span:last-child {
   display: block;
   position: absolute;
   top: 100%;
   left: 0;
-  transition: transform 0.35s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 250ms var(--ease-out);
 }
 .nav-link-item:hover { opacity: 1; }
-.nav-link-item:hover span { transform: translateY(-100%); }
+@media (hover: hover) and (pointer: fine) {
+  .nav-link-item:hover span { transform: translateY(-100%); }
+}
 .nav-status {
   font-size: var(--type-sm);
   display: flex;

@@ -11,11 +11,11 @@ export const archiveItems: CaseStudy[] = [
     intro: [
       {
         type: "p",
-        text: "Momentum Health Club is a community-led health and fitness platform built around the idea that staying healthy should feel social, welcoming, and sustainable, rather than intimidating or performance-driven.",
+        text: "Momentum Health Club is a community-led health and fitness platform built on one idea: staying healthy should feel social, welcoming, and sustainable, not intimidating or competitive.",
       },
       {
         type: "p",
-        text: "I'm helping shape the digital experience across the design system, website, marketing material, event collateral, social media, and overall brand experience — creating a consistent visual language across every touchpoint.",
+        text: "I design across Momentum's design system, website, marketing, events, and social media, so the brand looks and feels the same wherever someone meets it.",
       },
     ],
     sections: [
@@ -24,11 +24,11 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Fitness experiences often feel either too transactional or too niche. People may want to become healthier but struggle to find a community that feels welcoming enough to return to consistently.",
+            text: "Fitness tends to feel either transactional or niche. Plenty of people want to get healthier, but struggle to find a community welcoming enough to keep coming back to.",
           },
           {
             type: "p",
-            text: "Momentum needed a digital experience that could communicate its community-first philosophy while making events, activities, and participation easy to understand.",
+            text: "Momentum needed a digital experience that showed its community-first approach and made events and activities simple to understand and join.",
           },
         ],
       },
@@ -77,7 +77,7 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Before moving into polished interfaces, I explore different structures through paper sketches, wireframes, and user flows.",
+            text: "Before anything gets polished, I try out different structures with paper sketches, wireframes, and user flows.",
           },
         ],
       },
@@ -86,11 +86,11 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "A major part of my work is creating the design system from the ground up — defining typography, colours, spacing, components, buttons, cards, layouts, and interaction patterns.",
+            text: "A big part of my work is building the design system from scratch: typography, colours, spacing, components, layouts, and interaction patterns.",
           },
           {
             type: "p",
-            text: "The goal is to make Momentum feel like one brand, whether someone encounters it through the website, an Instagram post, an event poster, or an in-person experience.",
+            text: "The goal: Momentum should feel like one brand, whether someone finds it through the website, an Instagram post, an event poster, or in person.",
           },
         ],
       },
@@ -122,11 +122,11 @@ export const archiveItems: CaseStudy[] = [
     intro: [
       {
         type: "p",
-        text: "Surge is an AI-powered sales performance assistant designed to help sales professionals understand their daily performance, identify areas for improvement, and receive personalised feedback.",
+        text: "Surge is an AI sales assistant that helps salespeople understand how their day went, see what to improve, and get personalised coaching.",
       },
       {
         type: "p",
-        text: "Instead of simply showing sales numbers, Surge turns performance data into actionable insights and coaching.",
+        text: "Instead of just showing numbers, it turns performance data into specific feedback.",
       },
     ],
     sections: [
@@ -135,11 +135,11 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Sales teams often have access to a lot of performance data, but data alone doesn't tell a salesperson what they should improve or how they can improve it.",
+            text: "Sales teams have plenty of performance data, but data alone doesn't tell a salesperson what to fix or how.",
           },
           {
             type: "p",
-            text: "Salespeople need a way to understand their performance without manually analysing calls, goals, and metrics every day.",
+            text: "Salespeople need to understand their performance without manually going through calls, goals, and metrics every day.",
           },
         ],
       },
@@ -205,7 +205,7 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "The final interface turns complex performance data into a simple coaching experience, using scores, visual trends, actionable feedback, and clear next steps.",
+            text: "The final interface turns dense performance data into simple coaching: a score, visual trends, specific feedback, and clear next steps.",
           },
         ],
       },
@@ -221,11 +221,11 @@ export const archiveItems: CaseStudy[] = [
     intro: [
       {
         type: "p",
-        text: "A banking website concept focused on making financial products and services easier to discover, understand, and compare.",
+        text: "A concept for a banking website that makes products and services simpler to find, understand, and compare.",
       },
       {
         type: "p",
-        text: "The project explores how a traditional banking experience can be transformed into a more modern, approachable digital journey.",
+        text: "It explores how a traditional bank's website could feel more modern and approachable.",
       },
     ],
     sections: [
@@ -234,7 +234,7 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Banking websites often contain a large amount of information across products, services, rates, support, and account options. The challenge was to create an experience where users could quickly understand:",
+            text: "Banking websites pack in products, services, rates, support, and account options. The challenge was helping people quickly answer:",
           },
           {
             type: "flow",
@@ -252,14 +252,14 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "I structured the experience around clear product discovery and simplified navigation, giving users multiple paths to reach the information they need. The interface focuses on:",
+            text: "I organised the site around product discovery and simpler navigation, with several paths to the same information. The interface focuses on:",
           },
           {
             type: "list",
             items: [
               "Clear information hierarchy",
               "Product categorisation",
-              "Easy navigation",
+              "Simple navigation",
               "Financial product comparison",
               "Strong calls to action",
               "Accessible content structure",
@@ -289,7 +289,7 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "The final design focuses on creating a banking experience that feels clear, trustworthy, and easy to navigate, while maintaining the visual credibility expected from a financial institution.",
+            text: "The result is a banking site that feels clear and trustworthy, and still looks like an institution you'd hand your money to.",
           },
         ],
       },
@@ -305,11 +305,11 @@ export const archiveItems: CaseStudy[] = [
     intro: [
       {
         type: "p",
-        text: "A creative web experience built around a collection of AI-powered design utilities, helping designers move faster from idea to execution.",
+        text: "A web experience for a set of AI design tools that help designers get from idea to execution faster.",
       },
       {
         type: "p",
-        text: "The platform brings multiple creative tools into one visually rich experience — from generating SVG icons and visual assets to AI-assisted design workflows and automated layer management.",
+        text: "It brings several tools into one place, from generating SVG icons and visuals to AI-assisted workflows and automatic layer renaming.",
       },
     ],
     sections: [
@@ -318,11 +318,11 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Designers often jump between multiple tools and workflows for small but repetitive tasks — finding icons, generating visuals, renaming layers, creating assets, and experimenting with ideas. These small tasks interrupt the creative process.",
+            text: "Designers jump between tools for small, repetitive jobs: finding icons, generating visuals, renaming layers, making assets. Each one breaks their focus.",
           },
           {
             type: "p",
-            text: "The opportunity was to create an experience where AI handles the repetitive parts while the designer stays focused on creativity.",
+            text: "The opportunity: let AI handle the repetitive parts so the designer can stay on the creative work.",
           },
         ],
       },
@@ -331,7 +331,7 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "The website brings different AI-powered capabilities together into a single creative ecosystem. The experience includes tools such as:",
+            text: "The site puts these AI tools side by side in one place, including:",
           },
           {
             type: "list",

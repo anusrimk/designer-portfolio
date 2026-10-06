@@ -24,7 +24,7 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "JavaScript Mumbai needed a stronger and more cohesive digital presence that could communicate its events and community while making it easier for users to discover and register for initiatives.",
+            text: "JavaScript Mumbai's online presence didn't hang together, and finding an event and signing up for it took more effort than it should have. The site needed to show what the community is about and get people registered without friction.",
           },
         ],
       },
@@ -33,11 +33,11 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "I started by understanding the different audiences interacting with the platform — attendees, developers, speakers, and the broader community.",
+            text: "I started with who actually uses the site: attendees, developers, speakers, and the wider community.",
           },
           {
             type: "p",
-            text: "I mapped their needs and pain points in FigJam, then translated those insights into information architecture, user flows, and eventually the visual system.",
+            text: "I mapped what each of them needed in FigJam, then turned that into the information architecture, the user flows, and finally the visual system.",
           },
         ],
       },
@@ -65,7 +65,7 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "Before opening Figma, I sketch the experience on paper to explore layouts, hierarchy, navigation, and interactions quickly.",
+            text: "Before opening Figma, I sketch on paper. It's the fastest way to try out layouts, hierarchy, navigation, and interactions before committing to any of them.",
           },
           {
             type: "placeholders",
@@ -98,11 +98,11 @@ export const works: Work[] = [
     intro: [
       {
         type: "p",
-        text: "At Winvesta, I worked on complex fintech products where UX decisions directly affected whether users could successfully complete financial tasks. I worked across cross-border payments, onboarding, funding, invoicing, investment workflows, and internal product experiences.",
+        text: "At Winvesta, I designed fintech products where one confusing screen could stop someone from sending money abroad or getting an invoice paid. I worked across cross-border payments, onboarding, funding, invoicing, investments, and internal tools.",
       },
       {
         type: "p",
-        text: "I collaborated closely with founders, engineers, growth teams, and international customers, taking features from problem discovery through research, flows, wireframes, UI, and iteration.",
+        text: "I worked closely with the founders, engineers, growth team, and international customers, taking features from discovery through research, flows, wireframes, UI, and iteration.",
       },
     ],
     sections: [
@@ -111,7 +111,7 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "Financial products are naturally complex. Users had to navigate concepts such as international transfers, KYC, funding accounts, invoices, and investment workflows — often without understanding the terminology behind them.",
+            text: "Financial products are complex by nature. Users had to deal with international transfers, KYC, funding accounts, invoices, and investments, often without knowing what the terms meant.",
           },
           {
             type: "quote",
@@ -169,7 +169,7 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "Once the journey was validated, I translated it into high-fidelity interfaces while maintaining consistency with the product's design system.",
+            text: "Once the journey held up, I turned it into high-fidelity screens built on the product's existing design system.",
           },
           {
             type: "images",
@@ -199,7 +199,7 @@ export const works: Work[] = [
           },
           {
             type: "p",
-            text: "This experience taught me how to design for complexity, trust, compliance, and real financial consequences — while still keeping the experience human.",
+            text: "This is where I learned to design for complexity, trust, compliance, and real money, without losing the human side of the experience.",
           },
         ],
       },
@@ -258,7 +258,7 @@ export const works: Work[] = [
     intro: [
       {
         type: "p",
-        text: "At LetsUpgrade, I worked on 12thClass.com, focusing on user experience, research, content flow, and engagement for a platform serving 1M+ users.",
+        text: "At LetsUpgrade, I worked on 12thClass.com, a platform for students with 1M+ users, focusing on UX research, content flow, and engagement.",
       },
     ],
     sections: [
@@ -267,7 +267,7 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "With a large student audience, the challenge wasn't simply attracting users — it was helping them find the right information quickly and continue through the experience without unnecessary friction.",
+            text: "With that many students, getting people in wasn't the hard part. Helping them find the right information fast, and keep going without friction, was.",
           },
         ],
       },

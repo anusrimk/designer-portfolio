@@ -216,7 +216,7 @@ export const archiveItems: CaseStudy[] = [
     intro: [
       {
         type: "p",
-        text: "OPUL is a modern banking website that makes financial products simpler to discover, compare, and decide on, through clear navigation and an intuitive experience.",
+        text: "OPUL is a modern banking website for an employee card that covers perks, expenses, benefits, and family spending in one product. The design makes it simple to understand what the card does and decide to get started, through clear navigation and an intuitive experience.",
       },
     ],
     sections: [

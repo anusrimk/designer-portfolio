@@ -82,6 +82,8 @@ export const archiveItems: CaseStudy[] = [
           },
         ],
       },
+      // TODO(copy): once there's a result to share (sign-ups, repeat attendance,
+      // event turnout), add an "Outcome" section after Deliverables.
       {
         heading: "Deliverables",
         blocks: [

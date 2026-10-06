@@ -288,8 +288,10 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "I collaborated with development and marketing teams to improve navigation, content flow, accessibility, and overall usability, while ensuring that UX decisions remained aligned with business and engagement goals.",
+            text: "Working with the development and marketing teams, I improved navigation, content flow, and accessibility, and kept every change tied to the platform's engagement goals.",
           },
+          // TODO(copy): name one change you shipped and its effect, e.g.
+          //   "I [restructured X / changed Y], and [metric] moved from [a] to [b]."
         ],
       },
     ],

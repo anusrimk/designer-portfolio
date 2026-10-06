@@ -124,21 +124,11 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "I started with the problem, not the screen. I used FigJam to break down:",
+            text: "I started with the problem, not the screen. In FigJam, I mapped who the customers were, what they were trying to do, where the existing journeys broke down, and what a better journey looked like, along with the edge cases, technical constraints, and product dependencies that shaped what we could build.",
           },
-          {
-            type: "list",
-            items: [
-              "Customer personas",
-              "User goals",
-              "Pain points",
-              "Existing journeys",
-              "Desired journeys",
-              "Edge cases",
-              "Technical constraints",
-              "Product dependencies",
-            ],
-          },
+          // TODO(copy): add one real finding from this mapping, e.g.
+          //   "That showed users dropping off at [step], mostly because of [cause].
+          //    So rather than [obvious fix], I [what you did]."
           {
             type: "images",
             images: [
@@ -276,20 +266,10 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "I combined qualitative UX thinking with Google Analytics data to understand where users were engaging and where they were dropping off. I looked at:",
+            text: "I paired UX review with Google Analytics data to see where students engaged and where they dropped off, looking closely at navigation, content hierarchy, accessibility, and the moments people left.",
           },
-          {
-            type: "list",
-            items: [
-              "User behaviour",
-              "Navigation",
-              "Content hierarchy",
-              "Engagement gaps",
-              "Drop-off points",
-              "Accessibility",
-              "Conversion opportunities",
-            ],
-          },
+          // TODO(copy): add what the data showed, e.g.
+          //   "The biggest drop-off was at [page/step], because [cause]."
         ],
       },
       {

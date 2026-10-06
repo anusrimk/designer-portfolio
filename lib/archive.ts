@@ -37,22 +37,10 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "I'm working across both the product and brand sides of Momentum. The process includes:",
+            text: "I work on both the product and the brand. That starts with understanding who Momentum's members are, what motivates them, and what stops them, then mapping how they discover and join activities. From there I shape the information architecture and the website, build the design system, and design the marketing, social, and event material, keeping it all consistent online and off.",
           },
-          {
-            type: "list",
-            items: [
-              "Understanding different member personas",
-              "Mapping their motivations and barriers",
-              "Creating user journeys for discovering and joining activities",
-              "Defining the information architecture",
-              "Designing the website experience",
-              "Building a scalable design system",
-              "Creating marketing and social media assets",
-              "Designing event and community collateral",
-              "Maintaining consistency across online and offline touchpoints",
-            ],
-          },
+          // TODO(copy): add one thing you learned about members and how it
+          // changed the design, e.g. "Most first-timers [behaviour], so I [change]."
         ],
       },
       {

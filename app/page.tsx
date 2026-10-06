@@ -185,19 +185,38 @@ export default function Home() {
         cleanupFns.push(() => mm.revert());
 
         mm.add("(min-width: 1025px)", () => {
-          // Fixed pin distance — stays 50% regardless of item count or card height.
+          // Pin length is derived from how far the cards travel, so their speed
+          // stays tied to the scroll instead of to a fixed pin distance. (A flat
+          // +=50% made each card cross ~1.2 screens in ~0.2 screens of scroll,
+          // about 6.5x the page's speed, so they were gone before you could read
+          // them.) CARD_SPEED is card px per scrolled px: 1 = moves with the
+          // page; a little above 1 keeps a hint of parallax.
+          const CARD_SPEED = 1.25;
+          const CARD_DURATION = 4;
+          // Next card starts when the previous one is ~3/8 of the way up, so
+          // about two cards are on screen at once, on alternating sides.
+          const CARD_STAGGER = 1.5;
+          const cards = gsap.utils.toArray<HTMLElement>(".archive-item");
+          const pinDistance = () => {
+            const tallest = Math.max(...cards.map((c) => c.offsetHeight));
+            const travel = window.innerHeight + tallest + 24;
+            const units = CARD_DURATION + CARD_STAGGER * (cards.length - 1);
+            return Math.round(((units / CARD_DURATION) * travel) / CARD_SPEED);
+          };
+
           const archiveTl = gsap.timeline({
             scrollTrigger: {
               trigger: "#archive",
               start: "top top",
-              end: "+=50%",
+              end: () => `+=${pinDistance()}`,
               pin: true,
               scrub: 0.3,
               anticipatePin: 1,
               // The item tweens below travel in `vh`, which GSAP resolves to
               // pixels once at creation. Without this, resizing the window
               // (or a mobile URL bar collapsing) leaves the cards animating to
-              // a stale distance and they stop clearing the viewport.
+              // a stale distance and they stop clearing the viewport. It also
+              // re-runs pinDistance() so the pin tracks the new travel.
               invalidateOnRefresh: true,
             },
           });
@@ -213,11 +232,13 @@ export default function Home() {
           const exitY = (i: number, target: HTMLElement) =>
             -(target.offsetHeight + 24);
 
-          archiveTl
-            .to(".archive-item--1", { y: exitY, duration: 4, ease: "none" }, 0)
-            .to(".archive-item--2", { y: exitY, duration: 4, ease: "none" }, 2)
-            .to(".archive-item--3", { y: exitY, duration: 4, ease: "none" }, 4)
-            .to(".archive-item--4", { y: exitY, duration: 4, ease: "none" }, 6);
+          cards.forEach((card, i) => {
+            archiveTl.to(
+              card,
+              { y: exitY, duration: CARD_DURATION, ease: "none" },
+              i * CARD_STAGGER
+            );
+          });
         });
 
 

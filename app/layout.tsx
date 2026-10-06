@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Anusri Karmokar — UX Strategist & Product Designer",
   description:
     "Portfolio of Anusri Karmokar — UX Strategist and Product Designer based in Mumbai.",
+  // Shown above the title on Discord, Slack and other link previews.
+  // No title/description here, so each page keeps its own og:title.
+  openGraph: { siteName: "Anusri Karmokar", type: "website" },
   // Large preview on X; the image itself comes from app/opengraph-image.tsx
   twitter: { card: "summary_large_image" },
 };

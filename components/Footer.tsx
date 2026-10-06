@@ -19,7 +19,7 @@ export default function Footer() {
           <a href="mailto:anusrikarmokar@gmail.com">(Email)</a>
           <a href="https://linkedin.com/in/anusrikarmokar" target="_blank" rel="noopener noreferrer">(LinkedIn)</a>
           <a href="https://figma.com/@anusri" target="_blank" rel="noopener noreferrer">(Figma)</a>
-          <a href="#">Resume ↓</a>
+          <a href="/Anusri-Karmokar-Resume.pdf" download>Resume ↓</a>
         </div>
       </div>
 

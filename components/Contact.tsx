@@ -23,7 +23,7 @@ export default function Contact() {
         >
           (Figma)
         </a>
-        <a href="#" className="contact-resume-pill">
+        <a href="/Anusri-Karmokar-Resume.pdf" className="contact-resume-pill" download>
           Download Resume ↓
         </a>
       </div>

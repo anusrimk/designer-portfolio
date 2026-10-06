@@ -40,10 +40,9 @@ export default function About() {
             ))}
           </div>
           <a
-            href="#"
+            href="/Anusri-Karmokar-Resume.pdf"
             className="about-resume"
-            target="_blank"
-            rel="noopener noreferrer"
+            download
           >
             (Download Resume)
           </a>

@@ -3,8 +3,7 @@ import Image from "next/image";
 const achievements = [
   "Top 10 — PIWOT PanIIT 2025",
   "Top 4 — ISTD Hackathon",
-  // TODO(copy): name the contest, e.g. "Figma Contest Winner — [contest]".
-  "Figma Contest Winner",
+  "Figma Quiz Winner",
   "National Athlete — Archery & Taekwondo",
   "600+ hackathon participants",
 ];

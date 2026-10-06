@@ -23,6 +23,9 @@ export default function Archive() {
               <div className="archive-item-desc">
                 {item.intro[0]?.type === "p" ? item.intro[0].text : ""}
               </div>
+              <span className="archive-item-cta">
+                View project <span className="archive-item-cta-arrow" aria-hidden="true">↗</span>
+              </span>
             </div>
           </a>
         ))}

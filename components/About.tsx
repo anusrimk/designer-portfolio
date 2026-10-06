@@ -3,10 +3,8 @@ import Image from "next/image";
 const achievements = [
   "Top 10 — PIWOT PanIIT 2025",
   "Top 4 — ISTD Hackathon",
-  // TODO(copy): name the contest and event, e.g. "Figma Contest Winner — [contest]"
-  // and "Best MERN Stack Website — [event, year]".
+  // TODO(copy): name the contest, e.g. "Figma Contest Winner — [contest]".
   "Figma Contest Winner",
-  "Best MERN Stack Website",
   "National Athlete — Archery & Taekwondo",
   "600+ hackathon participants",
 ];
@@ -27,10 +25,10 @@ export default function About() {
         </div>
         <div className="about-content">
           <p className="about-bio">
-            I&apos;m Anusri — a designer who codes, a developer who cares{" "}
-            <em>way too much about spacing</em>, and someone who genuinely
-            enjoys turning chaotic ideas into things people actually want to
-            use. I do my best work where the stakes are real, like moving
+            I&apos;m Anusri — a developer turned product designer. I made the
+            switch once I realised I cared <em>way too much about spacing</em>,
+            and I genuinely enjoy turning chaotic ideas into things people
+            actually want to use. I do my best work where the stakes are real, like moving
             money across borders at <em>Winvesta</em>, or getting{" "}
             <em>700+ people</em> to sign up for a meetup in one week.
             Currently with <em>JavaScript Mumbai</em> and{" "}

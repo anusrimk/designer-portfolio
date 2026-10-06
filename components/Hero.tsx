@@ -27,7 +27,7 @@ export default function Hero() {
       <div className="hero-body">
         <div className="hero-desc">
           <span className="hero-plus">+</span>
-          <p>Designer with strengths in UI/UX, product thinking, and web experiences. Building at the intersection of design, development, and AI.</p>
+          <p>Designer with strengths in UI/UX, product thinking, and web experiences. Building at the intersection of design and AI.</p>
         </div>
         <div className="hero-image">
           <div className="hero-image-placeholder">
@@ -43,7 +43,7 @@ export default function Hero() {
         </div>
         <div className="hero-location">
           Based in Mumbai, making things since 2023.<br />
-          Currently somewhere between Figma, code, caffeine,<br />
+          Currently somewhere between Figma, FigJam, caffeine,<br />
           and &ldquo;wait, I have a better idea.&rdquo;
         </div>
       </div>

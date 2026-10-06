@@ -164,7 +164,7 @@ export const works: Work[] = [
         ],
       },
       {
-        heading: "Impact",
+        heading: "Outcome",
         blocks: [
           {
             type: "list",

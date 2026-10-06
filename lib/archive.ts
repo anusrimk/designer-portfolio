@@ -193,7 +193,7 @@ export const archiveItems: CaseStudy[] = [
         ],
       },
       {
-        heading: "Final Experience",
+        heading: "Outcome",
         blocks: [
           {
             type: "p",
@@ -277,7 +277,7 @@ export const archiveItems: CaseStudy[] = [
         ],
       },
       {
-        heading: "Final Experience",
+        heading: "Outcome",
         blocks: [
           {
             type: "p",

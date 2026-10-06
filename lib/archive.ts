@@ -225,14 +225,14 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "Banking websites pack in products, services, rates, support, and account options. The challenge was helping people quickly answer:",
+            text: "OPUL's card does several jobs at once: employee perks, expense management, benefits, and family spending. The challenge was explaining all of that in a few seconds, on a phone as easily as on a laptop, without burying it in a feature list. A visitor needed to quickly answer:",
           },
           {
             type: "flow",
             steps: [
-              "What does the bank offer?",
-              "Which product is right for me?",
-              "What do I need?",
+              "What is this card?",
+              "What can I do with it?",
+              "How fast can I start?",
               "What do I do next?",
             ],
           },
@@ -243,18 +243,18 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "I organised the site around product discovery and simpler navigation, with several paths to the same information. The interface focuses on:",
+            text: "I built the page around one product and one promise, and gave each section a single job:",
           },
           {
             type: "list",
             items: [
-              "Clear information hierarchy",
-              "Product categorisation",
-              "Simple navigation",
-              "Financial product comparison",
-              "Strong calls to action",
-              "Accessible content structure",
-              "Responsive web layouts",
+              "The hero says it in one line, “The first Employee Consumer Card”, with the card itself as the centrepiece",
+              "A feature grid gives each benefit its own tile instead of a bullet list",
+              "Onboarding pairs the promise of activating in under 5 minutes with a real account screen, so the claim feels tangible",
+              "Family cards show shared limits as a stack of co-branded cards, so the idea reads at a glance",
+              "“Specially forged for you” presents the card as a 3D object a business can picture with its own branding",
+              "One next step throughout: Request a Demo",
+              "Desktop and mobile layouts designed side by side",
             ],
           },
         ],

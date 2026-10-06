@@ -119,9 +119,14 @@ export const works: Work[] = [
             type: "p",
             text: "I started with the problem, not the screen. In FigJam, I mapped who the customers were, what they were trying to do, where the existing journeys broke down, and what a better journey looked like, along with the edge cases, technical constraints, and product dependencies that shaped what we could build.",
           },
-          // TODO(copy): add one real finding from this mapping, e.g.
-          //   "That showed users dropping off at [step], mostly because of [cause].
-          //    So rather than [obvious fix], I [what you did]."
+          {
+            type: "p",
+            text: "Mapping the old onboarding made one thing obvious: the friction was predictable, and most of it didn't need to be there. Much of the process ran manually behind the scenes, creating engineering and operations work that shouldn't have existed.",
+          },
+          {
+            type: "p",
+            text: "So I redesigned the flow around how quickly someone wants to get into the app, while keeping every compliance check a fintech product needs. Onboarding got quicker.",
+          },
           {
             type: "images",
             images: [

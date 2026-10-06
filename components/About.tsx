@@ -31,9 +31,8 @@ export default function About() {
             actually want to use. I do my best work where the stakes are real, like moving
             money across borders at <em>Winvesta</em>, or getting{" "}
             <em>700+ people</em> to sign up for a meetup in one week.
-            Currently with <em>JavaScript Mumbai</em> and{" "}
-            <em>Momentum Health Club</em>; previously Winvesta and
-            LetsUpgrade. And yes, I probably still have{" "}
+            Currently with <em>JavaScript Mumbai</em>; previously Winvesta,
+            LetsUpgrade, and Momentum Health Club. And yes, I probably still have{" "}
             <em>47 untitled Figma drafts</em> open.
           </p>
           <div className="about-achievements">

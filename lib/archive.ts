@@ -15,7 +15,7 @@ export const archiveItems: CaseStudy[] = [
       },
       {
         type: "p",
-        text: "I design across Momentum's design system, website, marketing, events, and social media, so the brand looks and feels the same wherever someone meets it.",
+        text: "I designed across Momentum's design system, website, marketing, events, and social media, so the brand would look and feel the same wherever someone met it.",
       },
     ],
     sections: [
@@ -37,10 +37,8 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "I work on both the product and the brand. That starts with understanding who Momentum's members are, what motivates them, and what stops them, then mapping how they discover and join activities. From there I shape the information architecture and the website, build the design system, and design the marketing, social, and event material, keeping it all consistent online and off.",
+            text: "I worked on both the product and the brand. That started with understanding who Momentum's members are, what motivates them, and what stops them, then mapping how they discover and join activities. From there I shaped the information architecture and the website, built the design system, and designed the marketing, social, and event material, keeping it all consistent online and off.",
           },
-          // TODO(copy): add one thing you learned about members and how it
-          // changed the design, e.g. "Most first-timers [behaviour], so I [change]."
         ],
       },
       {
@@ -74,7 +72,7 @@ export const archiveItems: CaseStudy[] = [
         blocks: [
           {
             type: "p",
-            text: "A big part of my work is building the design system from scratch: typography, colours, spacing, components, layouts, and interaction patterns.",
+            text: "A big part of my work was building the design system from scratch: typography, colours, spacing, components, layouts, and interaction patterns.",
           },
           {
             type: "p",
@@ -82,8 +80,6 @@ export const archiveItems: CaseStudy[] = [
           },
         ],
       },
-      // TODO(copy): once there's a result to share (sign-ups, repeat attendance,
-      // event turnout), add an "Outcome" section after Deliverables.
       {
         heading: "Deliverables",
         blocks: [
@@ -97,6 +93,15 @@ export const archiveItems: CaseStudy[] = [
               "Event Collateral",
               "Brand Experience",
             ],
+          },
+        ],
+      },
+      {
+        heading: "Outcome",
+        blocks: [
+          {
+            type: "p",
+            text: "The project was paused midway, so there are no launch results to share. What's here is the research, structure, and system work up to that point, and the thinking I'd pick back up.",
           },
         ],
       },

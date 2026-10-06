@@ -216,11 +216,7 @@ export const archiveItems: CaseStudy[] = [
     intro: [
       {
         type: "p",
-        text: "A concept for a banking website that makes products and services simpler to find, understand, and compare.",
-      },
-      {
-        type: "p",
-        text: "It explores how a traditional bank's website could feel more modern and approachable.",
+        text: "A modern banking website that makes financial products simpler to discover, compare, and decide on, through clear navigation and an intuitive experience.",
       },
     ],
     sections: [
@@ -285,6 +281,14 @@ export const archiveItems: CaseStudy[] = [
           {
             type: "p",
             text: "The result is a banking site that feels clear and trustworthy, and still looks like an institution you'd hand your money to.",
+          },
+          {
+            type: "images",
+            images: [
+              "/archive/banking01.png",
+              "/archive/banking02.png",
+              "/archive/banking03.png",
+            ],
           },
         ],
       },

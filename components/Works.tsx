@@ -5,7 +5,7 @@ export default function Works() {
     <section className="works" id="works">
       <div className="works-watermark" aria-hidden="true">Selected</div>
       <div className="works-header">
-        <span className="works-year">2022 – 2025</span>
+        <span className="works-year">2024 – Present</span>
         <h2 className="works-title">Works</h2>
       </div>
       <div className="works-list">

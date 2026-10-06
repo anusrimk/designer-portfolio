@@ -15,7 +15,7 @@ export const works: Work[] = [
     intro: [
       {
         type: "p",
-        text: "I work across the digital experience of JavaScript Mumbai, leading website design, visual systems, and digital campaigns. My role sits between UX, visual design, and development, ensuring that the experience feels consistent from the first interaction to registration.",
+        text: "I design everything a JavaScript Mumbai member touches online: the website, the visual system, and the campaigns that get people through the door. One of those campaigns brought in 700+ registrations in a single week.",
       },
     ],
     sections: [
@@ -81,7 +81,7 @@ export const works: Work[] = [
         blocks: [
           {
             type: "p",
-            text: "I went on to build the website experience and supporting design system while creating marketing and campaign assets that generated 700+ registrations in a single week.",
+            text: "I built the website and its design system, and designed the campaign assets behind 700+ registrations in a single week.",
           },
         ],
       },
@@ -187,7 +187,11 @@ export const works: Work[] = [
             type: "list",
             items: [
               "Designed 15+ product features",
-              "Worked on $1.2M+ transaction volume",
+              // TODO(copy): name what you designed and when, e.g.
+              //   "Designed the [payments / funding] flows that have processed $1.2M+ in transactions"
+              //   "Redesigned [onboarding step], contributing to a 15%+ rise in onboardings over [period]"
+              // Also confirm Winvesta is OK with these figures being public.
+              "Designed across products handling $1.2M+ in transaction volume",
               "Contributed to a 15%+ increase in onboardings",
               "Worked across cross-border payments, Custom Invoicing, Funding Wallets, onboarding, website redesign, and investment experiences",
               "Designed Winnit, a collaborative AI workspace with multi-model support",

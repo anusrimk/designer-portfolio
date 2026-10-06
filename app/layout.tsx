@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Outfit } from "next/font/google";
 import CustomCursor from "@/components/CustomCursor";
+import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -29,6 +30,7 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${outfit.variable}`}>
       <body>
         <CustomCursor />
+        <SmoothScroll />
         {children}
       </body>
     </html>

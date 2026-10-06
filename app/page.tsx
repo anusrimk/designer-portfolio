@@ -9,26 +9,20 @@ import Archive from "@/components/Archive";
 import About from "@/components/About";
 import LogoStrip from "@/components/LogoStrip";
 import Footer from "@/components/Footer";
+import { getLenis } from "@/lib/smooth-scroll";
 
 export default function Home() {
   useEffect(() => {
     let disposed = false;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let ctx: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let lenisRef: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let gsapRef: any;
-    let tickerFn: ((time: number) => void) | undefined;
     const cleanupFns: Array<() => void> = [];
 
     async function initAnimations() {
       const gsap = (await import("gsap")).default;
       const { ScrollTrigger } = await import("gsap/ScrollTrigger");
-      const Lenis = (await import("lenis")).default;
       if (disposed) return;
 
-      gsapRef = gsap;
       gsap.registerPlugin(ScrollTrigger);
 
       // Reduced motion: native scrolling, no parallax/pin travel/morph, and
@@ -38,32 +32,10 @@ export default function Home() {
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      // ── Smooth anchor scroll via Lenis ──
-      if (!reduceMotion) document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        const onClick = (e: Event) => {
-          const href = (anchor as HTMLAnchorElement).getAttribute("href");
-          if (href && href.length > 1) {
-            e.preventDefault();
-            lenisRef?.scrollTo(href, {
-              duration: 1.4,
-              easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            });
-          }
-        };
-        anchor.addEventListener("click", onClick);
-        cleanupFns.push(() => anchor.removeEventListener("click", onClick));
-      });
-
-      // ── Lenis smooth scroll ──
-      // smoothTouch: false → let iOS/Android handle native touch momentum
-      // lerp: 0.1 → responsive enough not to feel laggy on fast scrolls
-      if (!reduceMotion) {
-        lenisRef = new Lenis({ lerp: 0.1, smoothWheel: true });
-        lenisRef.on("scroll", ScrollTrigger.update);
-        tickerFn = (time: number) => lenisRef.raf(time * 1000);
-        gsap.ticker.add(tickerFn);
-        gsap.ticker.lagSmoothing(0);
-      }
+      // Smooth scrolling (and smooth #anchor links) come from the site-wide
+      // Lenis in <SmoothScroll />; keep ScrollTrigger in step with it.
+      const lenis = getLenis();
+      if (lenis) cleanupFns.push(lenis.on("scroll", ScrollTrigger.update));
 
       ctx = gsap.context(() => {
         // Hero name stagger is a CSS animation (globals.css, .hero-name .char)
@@ -278,8 +250,6 @@ export default function Home() {
 
     return () => {
       disposed = true;
-      if (gsapRef && tickerFn) gsapRef.ticker.remove(tickerFn);
-      lenisRef?.destroy();
       ctx?.revert();
       cleanupFns.forEach((fn) => fn());
     };

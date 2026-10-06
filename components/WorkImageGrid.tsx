@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { getLenis } from "@/lib/smooth-scroll";
 
 export default function WorkImageGrid({ images }: { images: string[] }) {
   const [open, setOpen] = useState<string | null>(null);
@@ -30,12 +31,17 @@ export default function WorkImageGrid({ images }: { images: string[] }) {
     };
     window.addEventListener("keydown", onKey);
 
+    // Lock the page behind the lightbox. Lenis scrolls on wheel input
+    // regardless of overflow, so it has to be paused as well.
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    const lenis = getLenis();
+    lenis?.stop();
 
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
+      lenis?.start();
     };
   }, [open]);
 

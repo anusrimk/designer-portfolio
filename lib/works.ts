@@ -67,13 +67,9 @@ export const works: Work[] = [
             type: "p",
             text: "Before opening Figma, I sketch on paper. It's the fastest way to try out layouts, hierarchy, navigation, and interactions before committing to any of them.",
           },
-          {
-            type: "placeholders",
-            items: [
-              { label: "Paper sketch", caption: "Early exploration of the website structure." },
-              { label: "Low-fi wireframe — coming soon", caption: "Translating rough ideas into a structured user flow." },
-            ],
-          },
+          // TODO(copy): add an "images" block once the sketch and low-fi
+          // wireframe are ready (captions: "Early exploration of the website
+          // structure." / "Turning rough ideas into a structured user flow.")
         ],
       },
       {
@@ -148,10 +144,7 @@ export const works: Work[] = [
             type: "p",
             text: "I used paper sketches and low-fidelity wireframes to test the structure before investing time in visual design.",
           },
-          {
-            type: "placeholders",
-            items: [{ label: "Paper sketch — coming soon", caption: "" }],
-          },
+          // TODO(copy): add an "images" block once the paper sketch is ready.
         ],
       },
       {
@@ -272,17 +265,8 @@ export const works: Work[] = [
           //   "The biggest drop-off was at [page/step], because [cause]."
         ],
       },
-      {
-        heading: "Low-Fidelity",
-        blocks: [
-          {
-            type: "placeholders",
-            items: [
-              { label: "Low-fi wireframe — coming soon", caption: "Testing information hierarchy before visual design." },
-            ],
-          },
-        ],
-      },
+      // TODO(copy): restore a "Low-Fidelity" section once the wireframe is ready
+      // (caption: "Testing information hierarchy before visual design.").
       {
         heading: "Outcome",
         blocks: [

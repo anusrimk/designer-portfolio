@@ -144,7 +144,6 @@ export const works: Work[] = [
             type: "p",
             text: "I used paper sketches and low-fidelity wireframes to test the structure before investing time in visual design.",
           },
-          // TODO(copy): add an "images" block once the paper sketch is ready.
         ],
       },
       {
@@ -170,13 +169,8 @@ export const works: Work[] = [
             type: "list",
             items: [
               "Designed 15+ product features",
-              // TODO(copy): name what you designed and when, e.g.
-              //   "Designed the [payments / funding] flows that have processed $1.2M+ in transactions"
-              //   "Redesigned [onboarding step], contributing to a 15%+ rise in onboardings over [period]"
-              // Also confirm Winvesta is OK with these figures being public.
-              "Designed across products handling $1.2M+ in transaction volume",
-              "Contributed to a 15%+ increase in onboardings",
-              "Worked across cross-border payments, Custom Invoicing, Funding Wallets, onboarding, website redesign, and investment experiences",
+              "Worked on the UI revamp of Winvesta Global Payments, a product that has processed $1.2M+ in transactions",
+              "Designed the invoicing page and the new onboarding pages and flows, and contributed to Funding Wallets",
               "Designed Winnit, a collaborative AI workspace with multi-model support",
             ],
           },

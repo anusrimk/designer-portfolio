@@ -3,6 +3,8 @@ import Image from "next/image";
 const achievements = [
   "Top 10 — PIWOT PanIIT 2025",
   "Top 4 — ISTD Hackathon",
+  // TODO(copy): name the contest and event, e.g. "Figma Contest Winner — [contest]"
+  // and "Best MERN Stack Website — [event, year]".
   "Figma Contest Winner",
   "Best MERN Stack Website",
   "National Athlete — Archery & Taekwondo",
@@ -28,11 +30,13 @@ export default function About() {
             I&apos;m Anusri — a designer who codes, a developer who cares{" "}
             <em>way too much about spacing</em>, and someone who genuinely
             enjoys turning chaotic ideas into things people actually want to
-            use. Currently with <em>JavaScript Mumbai</em> and{" "}
-            <em>Momentum Health Club</em>. Previously: Winvesta, LetsUpgrade,
-            12thclass.com. I&apos;ve managed hackathons
-            with <em>600+ participants</em> across 5 cities. And yes, I
-            probably still have <em>47 untitled Figma drafts</em> open.
+            use. I do my best work where the stakes are real, like moving
+            money across borders at <em>Winvesta</em>, or getting{" "}
+            <em>700+ people</em> to sign up for a meetup in one week.
+            Currently with <em>JavaScript Mumbai</em> and{" "}
+            <em>Momentum Health Club</em>; previously Winvesta and
+            LetsUpgrade. And yes, I probably still have{" "}
+            <em>47 untitled Figma drafts</em> open.
           </p>
           <div className="about-achievements">
             {achievements.map((a, i) => (

@@ -207,16 +207,16 @@ export const archiveItems: CaseStudy[] = [
     ],
   },
   {
-    slug: "banking-website",
+    slug: "opul",
     num: "03",
-    name: "Banking Website",
+    name: "OPUL",
     tag: "UI/UX Designer",
-    metaLine1: "UI/UX Designer · Banking Website",
+    metaLine1: "UI/UX Designer · OPUL",
     metaLine2: "Concept · Web Experience · Information Architecture · UI Design",
     intro: [
       {
         type: "p",
-        text: "A modern banking website that makes financial products simpler to discover, compare, and decide on, through clear navigation and an intuitive experience.",
+        text: "OPUL is a modern banking website that makes financial products simpler to discover, compare, and decide on, through clear navigation and an intuitive experience.",
       },
     ],
     sections: [

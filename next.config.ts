@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/project/diagram-ui-recreation",
         permanent: true,
       },
+      {
+        source: "/project/banking-website",
+        destination: "/project/opul",
+        permanent: true,
+      },
     ];
   },
 };

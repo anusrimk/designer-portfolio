@@ -1001,14 +1001,20 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
   border-radius: 4px;
   overflow: hidden;
   outline-offset: 2px;
-  transition: transform 0.2s ease, outline-color 0.2s ease;
+  transition: transform 160ms var(--ease-out), outline-color 0.2s ease;
   outline: 1px solid transparent;
 }
-.work-detail-image-btn:hover,
 .work-detail-image-btn:focus-visible {
   transform: scale(1.02);
   outline-color: var(--text-muted);
 }
+@media (hover: hover) and (pointer: fine) {
+  .work-detail-image-btn:hover {
+    transform: scale(1.02);
+    outline-color: var(--text-muted);
+  }
+}
+.work-detail-image-btn:active { transform: scale(0.97); }
 .work-detail-image {
   object-fit: cover;
 }

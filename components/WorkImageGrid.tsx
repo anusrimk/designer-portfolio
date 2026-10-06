@@ -5,12 +5,28 @@ import Image from "next/image";
 
 export default function WorkImageGrid({ images }: { images: string[] }) {
   const [open, setOpen] = useState<string | null>(null);
+  // Keeps the lightbox mounted while its exit animation plays
+  const [closing, setClosing] = useState(false);
+
+  const close = () => setClosing(true);
+
+  // Unmount once the 150ms exit (globals.css, .lightbox--closing) has played.
+  // A timer rather than animationend, so the overlay can never get stuck
+  // covering the page if the event doesn't fire.
+  useEffect(() => {
+    if (!closing) return;
+    const t = setTimeout(() => {
+      setOpen(null);
+      setClosing(false);
+    }, 150);
+    return () => clearTimeout(t);
+  }, [closing]);
 
   useEffect(() => {
     if (!open) return;
 
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(null);
+      if (e.key === "Escape") setClosing(true);
     };
     window.addEventListener("keydown", onKey);
 
@@ -31,7 +47,10 @@ export default function WorkImageGrid({ images }: { images: string[] }) {
             key={i}
             type="button"
             className="work-detail-image-btn"
-            onClick={() => setOpen(src)}
+            onClick={() => {
+              setClosing(false);
+              setOpen(src);
+            }}
             aria-label="View larger image"
           >
             <Image
@@ -47,15 +66,18 @@ export default function WorkImageGrid({ images }: { images: string[] }) {
 
       {open && (
         <div
-          className="lightbox"
-          onClick={() => setOpen(null)}
+          className={`lightbox${closing ? " lightbox--closing" : ""}`}
+          onClick={close}
           role="dialog"
           aria-modal="true"
         >
           <button
             type="button"
             className="lightbox-close"
-            onClick={() => setOpen(null)}
+            onClick={(e) => {
+              e.stopPropagation();
+              close();
+            }}
             aria-label="Close"
           >
             ×

@@ -295,53 +295,49 @@ export const archiveItems: CaseStudy[] = [
     ],
   },
   {
-    slug: "ai-design-tools-website",
+    slug: "diagram-ui-recreation",
     num: "04",
-    name: "AI Design Tools Website",
-    tag: "UI/UX Designer",
-    metaLine1: "UI/UX Designer · AI Design Platform",
-    metaLine2: "In Progress · Web Design · Interaction Design · Visual System",
+    name: "Diagram — UI Recreation",
+    tag: "UI Recreation",
+    metaLine1: "Visual Design Study · Diagram",
+    metaLine2: "UI Recreation · Web Design · Visual System",
     intro: [
       {
         type: "p",
-        text: "A web experience for a set of AI design tools that help designers get from idea to execution faster.",
+        text: "A recreation of the marketing site for Diagram, the AI design-tools company Figma acquired in 2023. The original design is Diagram's; I rebuilt it in Figma as a visual design study.",
       },
       {
         type: "p",
-        text: "It brings several tools into one place, from generating SVG icons and visuals to AI-assisted workflows and automatic layer renaming.",
+        text: "Diagram presented a family of AI tools for designers, from SVG icon and image generation to automatic layer renaming, as one product. Its site was a good example of making a set of separate tools feel like a single, coherent brand.",
       },
     ],
     sections: [
       {
-        heading: "The Problem",
+        heading: "What I Recreated",
         blocks: [
           {
-            type: "p",
-            text: "Designers jump between tools for small, repetitive jobs: finding icons, generating visuals, renaming layers, making assets. Each one breaks their focus.",
-          },
-          {
-            type: "p",
-            text: "The opportunity: let AI handle the repetitive parts so the designer can stay on the creative work.",
+            type: "list",
+            items: [
+              "The landing page, where each tool orbits the Diagram mark like a planet",
+              "The feature grid, with one card per AI tool",
+              "The Genius product page and its feature cards",
+            ],
           },
         ],
       },
       {
-        heading: "The Solution",
+        heading: "Outcome",
         blocks: [
           {
             type: "p",
-            text: "The site puts these AI tools side by side in one place, including:",
+            text: "Three screens rebuilt in Figma from the original site.",
           },
           {
-            type: "list",
-            items: [
-              "AI Design Assistant",
-              "SVG Icon Generator",
-              "AI Visual Generation",
-              "AI Spellbook",
-              "Intelligent Layer Renaming",
-              "AI-assisted design utilities",
-              "Creative visual experiments",
+            type: "images",
+            images: [
+              "/archive/diagram01.png",
+              "/archive/diagram02.png",
+              "/archive/diagram03.png",
             ],
           },
         ],

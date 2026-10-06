@@ -31,8 +31,15 @@ export default function Home() {
       gsapRef = gsap;
       gsap.registerPlugin(ScrollTrigger);
 
+      // Reduced motion: native scrolling, no parallax/pin travel/morph, and
+      // entrances fade without moving. The Archive switches to its stacked
+      // layout via the matching media query in globals.css.
+      const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
       // ── Smooth anchor scroll via Lenis ──
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      if (!reduceMotion) document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         const onClick = (e: Event) => {
           const href = (anchor as HTMLAnchorElement).getAttribute("href");
           if (href && href.length > 1) {
@@ -50,11 +57,13 @@ export default function Home() {
       // ── Lenis smooth scroll ──
       // smoothTouch: false → let iOS/Android handle native touch momentum
       // lerp: 0.1 → responsive enough not to feel laggy on fast scrolls
-      lenisRef = new Lenis({ lerp: 0.1, smoothWheel: true });
-      lenisRef.on("scroll", ScrollTrigger.update);
-      tickerFn = (time: number) => lenisRef.raf(time * 1000);
-      gsap.ticker.add(tickerFn);
-      gsap.ticker.lagSmoothing(0);
+      if (!reduceMotion) {
+        lenisRef = new Lenis({ lerp: 0.1, smoothWheel: true });
+        lenisRef.on("scroll", ScrollTrigger.update);
+        tickerFn = (time: number) => lenisRef.raf(time * 1000);
+        gsap.ticker.add(tickerFn);
+        gsap.ticker.lagSmoothing(0);
+      }
 
       ctx = gsap.context(() => {
         // Hero name stagger is a CSS animation (globals.css, .hero-name .char)
@@ -63,7 +72,7 @@ export default function Home() {
         // ── Works rows stagger in ──
         gsap.fromTo(
           ".works-row",
-          { y: 40, opacity: 0 },
+          { y: reduceMotion ? 0 : 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
@@ -76,6 +85,51 @@ export default function Home() {
             },
           }
         );
+
+        // ── Dark zone: Archive through Footer ──
+        ScrollTrigger.create({
+          trigger: "#archive",
+          start: "top 56px",
+          onEnter: () => {
+            document.querySelector(".nav")?.classList.add("nav--dark");
+            document.body.classList.add("on-dark");
+          },
+          onLeaveBack: () => {
+            document.querySelector(".nav")?.classList.remove("nav--dark");
+            document.body.classList.remove("on-dark");
+          },
+        });
+
+        // ── Logo strip fade ──
+        gsap.fromTo(
+          ".logo-strip",
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: ".logo-strip",
+              start: "top 80%",
+            },
+          }
+        );
+
+        // ── Achievement pills stagger ──
+        // (reduced motion: globals.css drops the pills' initial offset)
+        gsap.to(".achievement-pill", {
+          opacity: 1,
+          x: 0,
+          stagger: 0.07,
+          duration: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".about-achievements",
+            start: "top 80%",
+          },
+        });
+
+        if (reduceMotion) return;
 
         // ── Works watermark parallax ──
         gsap.to(".works-watermark", {
@@ -100,20 +154,6 @@ export default function Home() {
         });
         morphTl.to(".morph-shape", { scale: 80, ease: "power2.inOut" });
 
-        // ── Dark zone: Archive through Footer ──
-        ScrollTrigger.create({
-          trigger: "#archive",
-          start: "top 56px",
-          onEnter: () => {
-            document.querySelector(".nav")?.classList.add("nav--dark");
-            document.body.classList.add("on-dark");
-          },
-          onLeaveBack: () => {
-            document.querySelector(".nav")?.classList.remove("nav--dark");
-            document.body.classList.remove("on-dark");
-          },
-        });
-
         // ── Archive title entrance ──
         gsap.fromTo(
           ".archive-title-wrap",
@@ -133,9 +173,11 @@ export default function Home() {
         );
 
         // ── Archive: pin + parallax scroll-up items ──
-        // Query is the exact complement of the `max-width: 1024px` block in
-        // globals.css that swaps Archive to the stacked layout. They must stay
-        // in sync: if both apply at once, CSS `transform: none !important` wins
+        // Query is the exact complement of the `max-width: 1024px` /
+        // `prefers-reduced-motion: reduce` block in globals.css that swaps
+        // Archive to the stacked layout (reduced motion never reaches this
+        // point — see the early return above). They must stay in sync: if
+        // both apply at once, CSS `transform: none !important` wins
         // and the section pins with nothing animating. matchMedia (not a
         // one-time check) re-evaluates on resize, so dragging the viewport
         // across the breakpoint rebuilds or tears down the timeline.
@@ -191,34 +233,6 @@ export default function Home() {
             scrub: true,
           },
         });
-
-        // ── Achievement pills stagger ──
-        gsap.to(".achievement-pill", {
-          opacity: 1,
-          x: 0,
-          stagger: 0.07,
-          duration: 0.5,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".about-achievements",
-            start: "top 80%",
-          },
-        });
-
-        // ── Logo strip fade ──
-        gsap.fromTo(
-          ".logo-strip",
-          { opacity: 0 },
-          {
-            opacity: 1,
-            duration: 0.6,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: ".logo-strip",
-              start: "top 80%",
-            },
-          }
-        );
 
         // ── Footer giant name letter-spacing on scroll ──
         const nameProxy = { letterSpacing: -4 };

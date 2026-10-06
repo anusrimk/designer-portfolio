@@ -1128,8 +1128,9 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
   }
 }
 
-/* Archive: simple layout on tablet + mobile (matches GSAP cutoff) */
-@media (max-width: 1024px) {
+/* Archive: simple layout on tablet + mobile, and for reduced motion
+   (matches the GSAP matchMedia query in app/page.tsx) */
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
   #archive {
     display: flex;
     flex-direction: column;
@@ -1158,7 +1159,6 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
     width: 100%;
     pointer-events: auto;
   }
-  .about-mark { display: none; }
   .archive-item {
     position: static;
     width: 100%;
@@ -1166,6 +1166,9 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
     transform: none !important;
     left: auto !important;
   }
+}
+@media (max-width: 1024px) {
+  .about-mark { display: none; }
   .logo-strip-row { gap: var(--sp-6); }
 }
 
@@ -1189,4 +1192,34 @@ body.on-dark .grid-col { border-color: var(--grid-line-dark); }
 @media (max-width: 480px) {
   .work-detail-images,
   .work-detail-placeholders { grid-template-columns: 1fr; }
+}
+
+/* ─── Reduced motion: keep fades, drop movement ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-name .char { animation-name: fade-in; animation-duration: 400ms; }
+  .work-detail-back,
+  .work-detail-header,
+  .work-detail-intro { animation-name: fade-in; }
+  .lightbox-image-wrap { animation-name: fade-in; }
+  .lightbox--closing .lightbox-image-wrap { animation-name: fade-out; }
+  .footer-pulse,
+  .footer-snitch { animation: none; }
+  .achievement-pill { transform: none; }
+  .nav-link-item span,
+  .works-row-num,
+  .works-row-name,
+  .works-row-thumb,
+  .work-detail-image-btn,
+  .cursor img { transition-property: opacity, outline-color; }
+  .nav-link-item:hover span,
+  .works-row:hover .works-row-num,
+  .works-row:hover .works-row-name { transform: none; }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }

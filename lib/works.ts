@@ -67,9 +67,6 @@ export const works: Work[] = [
             type: "p",
             text: "Before opening Figma, I sketch on paper. It's the fastest way to try out layouts, hierarchy, navigation, and interactions before committing to any of them.",
           },
-          // TODO(copy): add an "images" block once the sketch and low-fi
-          // wireframe are ready (captions: "Early exploration of the website
-          // structure." / "Turning rough ideas into a structured user flow.")
         ],
       },
       {
@@ -192,7 +189,7 @@ export const works: Work[] = [
     intro: [
       {
         type: "p",
-        text: "I trained 70+ MBA students in UI/UX, data science, Git and GitHub, command-line workflows, scalable storage, and no-code tools.",
+        text: "I trained 70+ MBA students in UI/UX and Figma, data science, Git and GitHub, command-line workflows, scalable storage, and no-code tools.",
       },
       {
         type: "p",
@@ -220,8 +217,6 @@ export const works: Work[] = [
             type: "p",
             text: "It also made me better at explaining technical and design ideas simply.",
           },
-          // TODO(copy): add a teaching artifact (an exercise, a slide, student
-          // work) as an "images" block, or one student result.
         ],
       },
     ],
@@ -257,12 +252,8 @@ export const works: Work[] = [
             type: "p",
             text: "I paired UX review with Google Analytics data to see where students engaged and where they dropped off, looking closely at navigation, content hierarchy, accessibility, and the moments people left.",
           },
-          // TODO(copy): add what the data showed, e.g.
-          //   "The biggest drop-off was at [page/step], because [cause]."
         ],
       },
-      // TODO(copy): restore a "Low-Fidelity" section once the wireframe is ready
-      // (caption: "Testing information hierarchy before visual design.").
       {
         heading: "Outcome",
         blocks: [
@@ -270,8 +261,6 @@ export const works: Work[] = [
             type: "p",
             text: "Working with the development and marketing teams, I improved navigation, content flow, and accessibility, and kept every change tied to the platform's engagement goals.",
           },
-          // TODO(copy): name one change you shipped and its effect, e.g.
-          //   "I [restructured X / changed Y], and [metric] moved from [a] to [b]."
         ],
       },
     ],

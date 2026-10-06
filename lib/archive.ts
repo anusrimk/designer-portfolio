@@ -113,9 +113,7 @@ export const archiveItems: CaseStudy[] = [
     name: "Surge",
     tag: "Product Designer",
     metaLine1: "Product Designer · Surge",
-    // TODO(copy): say what kind of project this was, e.g. "Concept · …",
-    // "Hackathon · …" or "Client · …".
-    metaLine2: "AI Sales Performance Assistant",
+    metaLine2: "Hackathon · AI Sales Performance Assistant",
     intro: [
       {
         type: "p",
@@ -298,7 +296,6 @@ export const archiveItems: CaseStudy[] = [
     name: "AI Design Tools Website",
     tag: "UI/UX Designer",
     metaLine1: "UI/UX Designer · AI Design Platform",
-    // TODO(copy): say what kind of project this was (Concept / Self-initiated / Client).
     metaLine2: "Web Design · Interaction Design · Visual System",
     intro: [
       {

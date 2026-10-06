@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   title: "Anusri Karmokar — UX Strategist & Product Designer",
   description:
     "Portfolio of Anusri Karmokar — UX Strategist and Product Designer based in Mumbai.",
+  // Large preview on X; the image itself comes from app/opengraph-image.tsx
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({

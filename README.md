@@ -37,6 +37,8 @@ app/
   works/[slug]/         Case study pages for Selected Works
   project/[slug]/       Case study pages for the Archive
   globals.css           Design tokens and nearly all styles
+  opengraph-image.tsx   Social preview image (1200×630), generated at build time
+assets/fonts/           .woff fonts for the social preview (next/og can't read woff2)
 components/             Page sections and shared UI
 lib/
   works.ts              Selected Works content
